@@ -3,11 +3,14 @@ import immstruct from 'immstruct';
 
 import {Component} from '../utils';
 import data from '../data';
+import Guild from './Guild';
 
 class App extends Component {
     render() {
         return (
-           <div>Init</div>
+           <div>
+                <Guild />
+           </div>
         );
     }
 }
