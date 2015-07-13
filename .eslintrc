@@ -26,8 +26,27 @@
         "browser": true
     },
     "ecmaFeatures": {
-        "jsx": true,
-        "modules": true
+        "arrowFunctions": true,
+        "binaryLiterals": false,
+        "blockBindings": true,
+        "classes": true,
+        "defaultParams": true,
+        "destructuring": true,
+        "forOf": false,
+        "generators": true,
+        "modules": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralDuplicateProperties": false,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "octalLiterals": true,
+        "regexUFlag": true,
+        "regexYFlag": true,
+        "superInFunctions": false,
+        "templateStrings": true,
+        "unicodeCodePointEscapes": false,
+        "globalReturn": false,
+        "jsx": true
     },
     "plugins": [
         "react"

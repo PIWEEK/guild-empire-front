@@ -1,11 +1,12 @@
 import React from 'react';
 import immstruct from 'immstruct';
 
-import {Component} from '../utils';
 import data from '../data';
 import Guild from './Guild';
+import {ImmutableProps} from '../utils';
 
-class App extends Component {
+@ImmutableProps
+class App extends React.Component {
     render() {
         return (
            <div>

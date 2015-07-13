@@ -1,10 +1,14 @@
-import {Component} from '../utils';
 import React from 'react';
 
-export default class Guild extends Component {
+import {ImmutableProps} from '../utils';
+
+@ImmutableProps
+class Guild extends React.Component {
     render() {
         return (
            <div>Guild</div>
         );
     }
 }
+
+export default Guild;

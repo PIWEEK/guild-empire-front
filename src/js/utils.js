@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import _ from 'lodash';
 
 function unCursor(cursor) {
@@ -9,8 +9,8 @@ function unCursor(cursor) {
     return cursor.deref();
 }
 
-export class Component extends React.Component {
-    shouldComponentUpdate(nextProps) {
+export function ImmutableProps(target) {
+    target.prototype.shouldComponentUpdate = function(nextProps) {
         let propsKeys = Object.keys(this.props);
 
         return _.some(propsKeys, (prop) => {
@@ -18,11 +18,7 @@ export class Component extends React.Component {
                 return false;
             }
 
-            if (this.props[prop] === nextProps[prop]) {
-                return true;
-            }
-
             return unCursor(this.props[prop]) !== unCursor(nextProps[prop]);
         });
-    }
+    };
 }
