@@ -1,1 +1,234 @@
 @import 'reset';
+
+$main-background: #34373c;
+$first-title: #fff;
+$second-title: #ffe680;
+
+$gold-color: yellow;
+$reputation-color: blue;
+$influence-color: green;
+$infamy-color: red;
+
+$positive: green;
+$negative: red;
+
+
+html {
+  min-height: 100%;
+  height: 100%;
+}
+body {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: Verdana;
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.main-container {
+  background: $main-background;
+  display: flex;
+  height: 100%;
+}
+
+svg {
+  background: orange;
+  flex-basis: 40px;
+  height: 40px;
+}
+
+%btn {
+  box-sizing: border-box;
+  padding: 1px;
+  margin: 1px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.btn-blue {
+  @extend %btn;
+  background: blue;
+}
+
+.guild-container {
+  border-right: solid 1px brown;
+  box-sizing: border-box;
+  display: flex;
+  flex-basis: 250px;
+  flex-direction: column;
+  .guild-data {
+    padding: 0 .5rem .5rem .5rem;
+  }
+  .guild-avatar {
+    background: blue;
+    height: 125px;
+    fill: white;
+  }
+  h1 {
+    color: $first-title;
+    font-size: 22px;
+  }
+  h2 {
+    color: $second-title;
+    font-size: 18px;
+  }
+  .guild-assets {
+    display: flex;
+    flex-direction: column;
+  }
+  .asset {
+    align-items: center;
+    display: flex;
+    margin-bottom: .5rem;
+    &.gold {
+      color: $gold-color;
+      fill: $gold-color;
+    }
+    &.reputation {
+      color: $reputation-color;
+      fill: $reputation-color;
+    }
+    &.influence {
+      color: $influence-color;
+      fill: $influence-color;
+    }
+    &.infamy {
+      color: $infamy-color;
+      fill: $infamy-color;
+    }
+    .image {
+      background: orange;
+      flex-basis: 40px;
+      height: 40px;
+      margin-right: 1rem;
+    }
+    .text {
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.game-zone-container {
+  display: flex;
+  .member-managment-container {
+    display: flex;
+  }
+}
+
+.active-member {
+  display: flex;
+  padding: 1rem;
+  max-height: 200px;
+  .avatar {
+    background: orange;
+    height: 200px;
+    width: 200px;
+    margin-right: 1rem;
+  }
+  .content {
+    background: #000;
+    display: flex;
+    max-width: 525px;
+    padding: 1rem;
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    li {
+      box-sizing: border-box;
+      display: flex;
+      flex-basis: 50%;
+      padding: 0 1rem .5rem 0;
+      &.positive {
+        .ammount {
+          color: $positive;
+        }
+      }
+      &.negative {
+        .ammount {
+          color: $negative;
+        }
+      }
+    }
+    .image {
+      height: 18px;
+      width: 18px;
+      margin-right: 1rem;
+      svg {
+        height: 18px;
+        width: 18px;
+      }
+    }
+    .name {
+      margin-right: 1rem;
+    }
+  }
+  .condition {
+    flex-basis: 124px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: .5rem;
+      width: 100%;
+    }
+    .image {
+      position: relative;
+      height: 28px;
+      width: 28px;
+      svg {
+        height: 28px;
+        width: 28px;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        margin:0 .25rem .25rem 0;
+        &:hover {
+          .tooltip {
+            display: block;
+          }
+        }
+        &:nth-child(4n+4) {
+          margin-right: 0;
+        }
+      }
+    }
+    .tooltip {
+      background: #fff;
+      display: none;
+      position: absolute;
+      left: .5rem;
+      top: .5rem;
+      width: 300px;
+      z-index: 2;
+    }
+  }
+}

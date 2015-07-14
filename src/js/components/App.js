@@ -3,14 +3,16 @@ import immstruct from 'immstruct';
 
 import data from '../data';
 import Guild from './Guild';
+import GameZone from './GameZone'
 import {ImmutableProps} from '../utils';
 
 @ImmutableProps
 class App extends React.Component {
     render() {
         return (
-           <div>
-                <Guild />
+           <div className="main-container">
+              <Guild />
+              <GameZone />
            </div>
         );
     }
