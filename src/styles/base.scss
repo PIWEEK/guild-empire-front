@@ -13,9 +13,18 @@ $infamy-color: red;
 $positive: green;
 $negative: red;
 
+$skill-needed-icon: orange;
+$skill-result-icon: red;
+
+$action-background: blue;
+
+$col-item-border: #fff;
+$col-item-background: #fff;
+$col-item-fill: #000;
 
 html {
   min-height: 100%;
+  max-width: 100%;
   height: 100%;
 }
 body {
@@ -25,7 +34,6 @@ body {
   font-family: Verdana;
   padding: 0;
   margin: 0;
-  min-height: 100%;
   height: 100%;
 }
 
@@ -47,10 +55,11 @@ h2 {
   background: $main-background;
   display: flex;
   height: 100%;
+  width: 100%;
 }
 
 svg {
-  background: orange;
+  fill: white;
   flex-basis: 40px;
   height: 40px;
 }
@@ -74,6 +83,8 @@ svg {
   display: flex;
   flex-basis: 250px;
   flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
   .guild-data {
     padding: 0 .5rem .5rem .5rem;
   }
@@ -115,10 +126,13 @@ svg {
       fill: $infamy-color;
     }
     .image {
-      background: orange;
       flex-basis: 40px;
       height: 40px;
       margin-right: 1rem;
+      svg {
+        height: 40px;
+        width: 40px;
+      }
     }
     .text {
       flex-grow: 1;
@@ -132,16 +146,27 @@ svg {
 }
 
 .game-zone-container {
+  align-items: flex-start;
   display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  max-width: 100%;
+  width: 100%;
   .member-managment-container {
+    box-sizing: border-box;
     display: flex;
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
 .active-member {
+  align-items: flex-start;
   display: flex;
-  padding: 1rem;
-  max-height: 200px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin: 1rem 0;
   .avatar {
     background: orange;
     height: 200px;
@@ -157,7 +182,7 @@ svg {
   .stats {
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem;
+    padding: 1rem 0;
     li {
       box-sizing: border-box;
       display: flex;
@@ -211,6 +236,7 @@ svg {
       display: flex;
       flex-wrap: wrap;
       li {
+        background: orange;
         margin:0 .25rem .25rem 0;
         &:hover {
           .tooltip {
@@ -230,6 +256,206 @@ svg {
       top: .5rem;
       width: 300px;
       z-index: 2;
+    }
+  }
+}
+
+.member-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  max-width: 540px;
+  margin-left: 2rem;
+  .member {
+    border-radius: 90px;
+    height: 90px;
+    width: 90px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    .avatar {
+      border-radius: 90px;
+      background: red;
+      height: 90px;
+      width: 90px;
+    }
+  }
+  .actions {
+    background: $action-background;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: solid 1px white;
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+    padding: .5rem;
+    width: 100%;
+    .image {
+      height: 9px;
+      width: 15px;
+    }
+    svg {
+      fill: white;
+      height: 15px;
+      width: 9px;
+    }
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+.action-managment-container {
+  background: #000;
+  display: flex;
+  flex-grow: 1;
+  padding: 1rem 0 0 1rem;
+  width: 100%;
+}
+.column {
+  display: flex;
+  flex-basis: 250px;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  &.col-action {
+    flex-basis: 440px;
+  }
+  .item-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .col-item {
+    background: $col-item-background;
+    border: $col-item-border;
+    color: $col-item-fill;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    padding: .5rem .5rem;
+    margin: 0 .5rem .25rem 0;
+    &:hover {
+      box-shadow: 1px 1px 10px white;
+    }
+  }
+
+}
+
+.place {
+  svg {
+    fill: $col-item-fill;
+  }
+  .icon {
+    padding-right: .25rem;
+    &:last-child {
+      padding-right: 0;
+    }
+    svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .turns {
+    align-items: center;
+    display: flex;
+    .icon {
+      padding-right: .5rem;
+    }
+    svg {
+      height: 15px;
+      width: 9px;
+    }
+  }
+}
+
+
+.results {
+  padding-top: .5rem;
+  .title {
+    font-size: 12px;
+    padding-bottom: .5rem;
+    width: 100%;
+  }
+  .skill-needed {
+    align-items: flex-start;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-wrap: wrap;
+    padding-right: .5rem;
+    padding-bottom: .5rem;
+    flex-basis: 90px;
+    .icon-container {
+      display: flex;
+      width: 100%;
+    }
+    svg {
+      fill: $skill-needed-icon;
+      height: 20px;
+      width: 20px;
+    }
+  }
+  .expected-result {
+    display: flex;
+    flex-direction: column;
+  }
+  .results-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .icon {
+    position: relative;
+  }
+  .skill {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    svg {
+      height: 14px;
+      width: 11px;
+    }
+  }
+  .skill-up {
+    fill: $positive;
+    svg {
+      fill: $positive;
+    }
+
+  }
+  .skill-down {
+    svg {
+      transform: rotate(180deg);
+      fill: $negative;
+    }
+  }
+  .results-item {
+    align-items: center;
+    color: $positive;
+    display: flex;
+    margin-right: .5rem;
+    padding-bottom: .5rem;
+    &.negative {
+      color: $negative;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    svg {
+      fill: $skill-result-icon;
+      height: 18px;
+      width: 18px;
+    }
+    p {
+      box-sizing: border-box;
+      padding: .25rem;
     }
   }
 }

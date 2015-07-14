@@ -2,6 +2,7 @@ import React from 'react';
 
 import {ImmutableProps} from '../utils';
 import commonActions from '../actions/common.actions';
+import Isvg from 'react-inlinesvg';
 
 @ImmutableProps
 class Guild extends React.Component {
@@ -27,7 +28,9 @@ class Guild extends React.Component {
               <div className="guild-assets">
 
                 <div className="asset gold">
-                  <div className="image"></div>
+                  <div className="image">
+                    <Isvg src="/images/stats/constitution.svg" />
+                  </div>
                   <div className="text">
                     <div className="item">
                       <span className="left">Gold:</span>
@@ -41,7 +44,9 @@ class Guild extends React.Component {
                 </div>
 
                 <div className="asset influence">
-                  <div className="image"></div>
+                  <div className="image">
+                    <Isvg src="/images/stats/constitution.svg" />
+                  </div>
                   <div className="text">
                     <div className="item">
                       <span className="left">Influence:</span>
@@ -55,7 +60,9 @@ class Guild extends React.Component {
                 </div>
 
                 <div className="asset reputation">
-                  <div className="image"></div>
+                  <div className="image">
+                    <Isvg src="/images/stats/constitution.svg" />
+                  </div>
                   <div className="text">
                     <div className="item">
                       <span className="left">Reputation:</span>
@@ -69,7 +76,9 @@ class Guild extends React.Component {
                 </div>
 
                 <div className="asset infamy">
-                  <div className="image"></div>
+                  <div className="image">
+                    <Isvg src="/images/stats/constitution.svg" />
+                  </div>
                   <div className="text">
                     <div className="item">
                       <span className="left">Infamy:</span>
