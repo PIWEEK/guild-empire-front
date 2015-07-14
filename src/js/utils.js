@@ -1,6 +1,7 @@
 // import React from 'react';
 import _ from 'lodash';
 import Promise from 'bluebird';
+import * as data from './data';
 
 function unCursor(cursor) {
     if (!cursor || !cursor.deref) {
@@ -22,6 +23,16 @@ export function ImmutableProps(target) {
             return unCursor(this.props[prop]) !== unCursor(nextProps[prop]);
         });
     };
+}
+
+export function Action(target) {
+    Object.defineProperty(target, 'cursor', {
+        get: function() {
+            return data.getCursor();
+        }
+    });
+
+    return target;
 }
 
 function jsonToUrl(obj) {

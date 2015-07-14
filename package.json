@@ -5,6 +5,7 @@
     "gulp-sass": "^2.0.3",
     "immstruct": "^1.4.1",
     "immutable": "^3.7.4",
+    "js-csp": "^0.4.1",
     "lodash": "^3.10.0",
     "node-libs-browser": "^0.5.2",
     "react": "^0.13.3",

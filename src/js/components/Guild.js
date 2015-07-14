@@ -1,10 +1,18 @@
 import React from 'react';
 
 import {ImmutableProps} from '../utils';
+import commonActions from '../actions/common.actions';
 
 @ImmutableProps
 class Guild extends React.Component {
+    showResume(e) {
+        e.preventDefault();
+
+        commonActions.openResume();
+    }
     render() {
+        let guild = this.props.guild;
+
         return (
           <div className="guild-container">
             <div className="guild-avatar">
@@ -22,8 +30,8 @@ class Guild extends React.Component {
                   <div className="image"></div>
                   <div className="text">
                     <div className="item">
-                      <span className="left">Reputation:</span>
-                      <span className="right">1.000.000</span>
+                      <span className="left">Gold:</span>
+                      <span className="right">{guild.get('gold')}</span>
                     </div>
                     <div className="item">
                       <span className="left">Income:</span>
@@ -37,7 +45,7 @@ class Guild extends React.Component {
                   <div className="text">
                     <div className="item">
                       <span className="left">Influence:</span>
-                      <span className="right">1.000.000</span>
+                      <span className="right">{guild.get('influence')}</span>
                     </div>
                     <div className="item reputation">
                       <span className="left">Income:</span>
@@ -51,7 +59,7 @@ class Guild extends React.Component {
                   <div className="text">
                     <div className="item">
                       <span className="left">Reputation:</span>
-                      <span className="right">1.000.000</span>
+                      <span className="right">{guild.get('reputation')}</span>
                     </div>
                     <div className="item">
                       <span className="left">Income:</span>
@@ -65,7 +73,7 @@ class Guild extends React.Component {
                   <div className="text">
                     <div className="item">
                       <span className="left">Infamy:</span>
-                      <span className="right">1.000.000</span>
+                      <span className="right">{guild.get('infamy')}</span>
                     </div>
                     <div className="item">
                       <span className="left">Income:</span>
@@ -76,7 +84,7 @@ class Guild extends React.Component {
 
               </div>
               <div className="guild-interactions">
-                <div className="btn-blue">Show Turn Resume</div>
+                <div className="btn-blue" onClick={this.showResume}>Show Turn Resume</div>
               </div>
               <div className="guild-end-turn">
                 <div className="btn-blue">End Turn</div>
