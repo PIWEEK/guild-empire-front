@@ -9,6 +9,7 @@ import WebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';
 import webpackConfig from './webpack.config.js';
 import gutil from 'gulp-util';
+import rename from 'gulp-rename';
 
 const paths = {
     dist: 'dist/',
@@ -47,13 +48,12 @@ gulp.task('server', function(callback) {
 });
 
 gulp.task('sass', [], function() {
-    return gulp.src(paths.scss)
-        .pipe(cached('sass'))
+    return gulp.src('src/styles/base.scss')
         .pipe(sass())
-        .pipe(concat('main.css'))
         .pipe(autoprefixer({
             cascade: false
         }))
+        .pipe(rename('main.css'))
         .pipe(gulp.dest(paths.dist));
 });
 
