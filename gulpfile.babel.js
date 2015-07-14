@@ -67,5 +67,4 @@ gulp.task('default', [
     'sass',
     'js-lint',
     'watch'], function () {
-
 });

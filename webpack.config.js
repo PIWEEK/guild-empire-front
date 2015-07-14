@@ -1,6 +1,6 @@
 module.exports = {
     entry: {
-        app: ["./src/js/bootstrap.js"]
+        app: ['./src/js/bootstrap.js']
     },
     output: {
         path: __dirname,
