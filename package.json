@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bluebird": "^2.9.33",
     "immstruct": "^1.4.1",
     "immutable": "^3.7.4",
     "lodash": "^3.10.0",
