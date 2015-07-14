@@ -37,10 +37,10 @@ var ajax = {
             var http = new XMLHttpRequest();
 
             http.onreadystatechange = function() {
-                if(http.readyState == 4) {
+                if(http.readyState === 4) {
                     let response = JSON.parse(http.responseText);
 
-                    if (http.status == 200) {
+                    if (http.status === 200) {
                         resolve(response);
                     } else {
                         reject(response);
