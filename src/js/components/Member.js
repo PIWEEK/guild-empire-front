@@ -15,6 +15,7 @@ class Member extends React.Component {
         return (
             <div onClick={this.selectMember.bind(this)} className="member">
               <div className="avatar">
+                <img src="/images/characters/cleric.png" />
               </div>
               <div className="actions">
                 <div className="image">
