@@ -21,7 +21,7 @@ class GameZone extends React.Component {
         }
 
         return (
-          <div className="game-zone-container guild-green">
+          <div className="game-zone-container">
             <div className="member-managment-wrapper">
               <div className="decor-managment-managment reverse">
                 <div className="degrade"></div>

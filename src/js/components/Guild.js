@@ -25,6 +25,9 @@ class Guild extends React.Component {
         return (
           <div className="guild-container">
             <div className="guild-avatar">
+              <div className="shield">
+                <Isvg src="/images/shields/guild-green.svg" />
+              </div>
             </div>
              <div className="guild-data">
               <h1>{guildName}</h1>

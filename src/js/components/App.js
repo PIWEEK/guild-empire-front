@@ -21,7 +21,7 @@ class App extends React.Component {
         let guildName = this.props.cursor.getIn(['gameInfo', 'guild']);
 
         return (
-           <div className="main-container">
+           <div className="main-container guild-green">
                 <Guild guildName={guildName} guild={this.props.cursor.getIn(['turn', 'guild', 'assets'])} musicOn={this.props.cursor.get('musicOn')} />
               <GameZone
                   selectedActions={this.props.cursor.get('actions')}
