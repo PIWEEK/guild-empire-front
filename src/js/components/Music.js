@@ -15,9 +15,6 @@ class Music extends React.Component {
     componentDidUpdate() {
         let musicOn = this.props.musicOn;
 
-        console.log("music didupdate >>>>>>>>>>>>>>");
-        console.log(musicOn);
-
         let myAudio = React.findDOMNode(this.refs.backgroundMusic);
 
         if (musicOn) {
@@ -31,11 +28,8 @@ class Music extends React.Component {
     render() {
         let musicOn = this.props.musicOn;
 
-        console.log("music render >>>>>>>>>>>>>>");
-        console.log(musicOn);
-
         return (
-            <div className="btn-green">
+            <div className="guild-music btn-green">
 
                 <a href="#" onClick={this.musicToggle.bind(this)}>Music {musicOn?'ON':'OFF'}</a>
 
