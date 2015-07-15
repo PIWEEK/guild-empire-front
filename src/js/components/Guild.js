@@ -29,7 +29,7 @@ class Guild extends React.Component {
 
                 <div className="asset gold">
                   <div className="image">
-                    <Isvg src="/images/stats/constitution.svg" />
+                    <Isvg src="/images/currency/gold.svg" />
                   </div>
                   <div className="text">
                     <div className="item">
@@ -45,7 +45,7 @@ class Guild extends React.Component {
 
                 <div className="asset influence">
                   <div className="image">
-                    <Isvg src="/images/stats/constitution.svg" />
+                    <Isvg src="/images/currency/influence.svg" />
                   </div>
                   <div className="text">
                     <div className="item">
@@ -61,7 +61,7 @@ class Guild extends React.Component {
 
                 <div className="asset reputation">
                   <div className="image">
-                    <Isvg src="/images/stats/constitution.svg" />
+                    <Isvg src="/images/currency/reputation.svg" />
                   </div>
                   <div className="text">
                     <div className="item">
@@ -77,7 +77,7 @@ class Guild extends React.Component {
 
                 <div className="asset infamy">
                   <div className="image">
-                    <Isvg src="/images/stats/constitution.svg" />
+                    <Isvg src="/images/currency/infamy.svg" />
                   </div>
                   <div className="text">
                     <div className="item">

@@ -5,10 +5,10 @@ $main-background: #34373c;
 $first-title: #fff;
 $second-title: #ffe680;
 
-$gold-color: yellow;
-$reputation-color: blue;
-$influence-color: green;
-$infamy-color: red;
+$gold-color: #edc647;
+$reputation-color: #788da8;
+$influence-color: #8ae234;
+$infamy-color: #c26523;
 
 $positive: green;
 $negative: red;
@@ -31,17 +31,21 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
-  font-family: Verdana;
   padding: 0;
   margin: 0;
   height: 100%;
 }
 
 h1 {
+  font-family: 'Arbutus Slab', serif;
+  font-weight: bold;
+  line-height: 1.2;
   padding: 0;
   margin: 0;
 }
 h2 {
+  font-family: 'Arbutus Slab', serif;
+  line-height: 1.1;
   padding: 0;
   margin: 0;
 }
@@ -53,6 +57,7 @@ h2 {
 }
 .main-container {
   background: $main-background;
+  font-family: 'Muli', sans-serif;
   display: flex;
   height: 100%;
   width: 100%;
@@ -85,6 +90,16 @@ svg {
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
+  .guild-name {
+    padding: 1rem 0;
+    h1 {
+      padding-bottom: .5rem;
+    }
+    h2 {
+      padding-bottom: .5rem;
+      font-weight: bold;
+    }
+  }
   .guild-data {
     padding: 0 .5rem .5rem .5rem;
   }
@@ -108,31 +123,42 @@ svg {
   .asset {
     align-items: center;
     display: flex;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
     &.gold {
       color: $gold-color;
-      fill: $gold-color;
+      svg {
+        fill: $gold-color;
+      }
     }
     &.reputation {
       color: $reputation-color;
-      fill: $reputation-color;
+      svg {
+        fill: $reputation-color;
+      }
     }
-    &.influence {
+    &.influence svg {
       color: $influence-color;
-      fill: $influence-color;
+      svg {
+        fill: $influence-color;
+      }
     }
     &.infamy {
       color: $infamy-color;
-      fill: $infamy-color;
+      svg {
+        fill: $infamy-color;
+      }
     }
     .image {
-      flex-basis: 40px;
-      height: 40px;
+      flex-basis: 35px;
+      height: 35px;
       margin-right: 1rem;
       svg {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
       }
+    }
+    .left {
+      font-weight: bold;
     }
     .text {
       flex-grow: 1;
@@ -141,6 +167,9 @@ svg {
     .item {
       display: flex;
       justify-content: space-between;
+      &:last-child {
+        margin-top: .5rem;
+      }
     }
   }
 }
@@ -162,11 +191,10 @@ svg {
 }
 
 .active-member {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-shrink: 0;
   flex-grow: 0;
-  margin: 1rem 0;
   .avatar {
     background: orange;
     height: 200px;
@@ -176,18 +204,29 @@ svg {
   .content {
     background: #000;
     display: flex;
-    max-width: 525px;
-    padding: 1rem;
+    max-width: 490px;
+    padding: 1rem 1rem 0 1rem;
+  }
+  .credentials {
+    h1 {
+      font-size: 25px;
+    }
+    h2 {
+      color: $second-title;
+      font-weight: bold;
+      font-size: 18px;
+    }
   }
   .stats {
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem 0;
+    padding: 1rem 0 0;
     li {
       box-sizing: border-box;
       display: flex;
       flex-basis: 50%;
-      padding: 0 1rem .5rem 0;
+      justify-content: space-between;
+      padding: 0 1rem 1rem 0;
       &.positive {
         .ammount {
           color: $positive;
@@ -216,6 +255,7 @@ svg {
     flex-basis: 124px;
     flex-grow: 0;
     flex-shrink: 0;
+    padding-left: .5rem;
     h1 {
       text-align: center;
       font-size: 18px;
@@ -324,7 +364,6 @@ svg {
     flex-basis: 440px;
   }
   .item-row {
-    align-items: center;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -343,15 +382,15 @@ svg {
       box-shadow: 1px 1px 10px white;
     }
   }
-
 }
 
 .place {
+  align-items: center;
   svg {
     fill: $col-item-fill;
   }
   .icon {
-    padding-right: .25rem;
+    margin-right: .25rem;
     &:last-child {
       padding-right: 0;
     }
@@ -364,7 +403,7 @@ svg {
     align-items: center;
     display: flex;
     .icon {
-      padding-right: .5rem;
+      margin-right: .5rem;
     }
     svg {
       height: 15px;
@@ -375,6 +414,7 @@ svg {
 
 
 .results {
+  align-items: flex-start;
   padding-top: .5rem;
   .title {
     font-size: 12px;
@@ -402,9 +442,10 @@ svg {
       width: 20px;
     }
   }
-  .expected-result {
+  .expected-results {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   .results-container {
     display: flex;
@@ -419,8 +460,8 @@ svg {
     right: 0;
     position: absolute;
     svg {
-      height: 14px;
-      width: 11px;
+      height: 11px;
+      width: 10px;
     }
   }
   .skill-up {
@@ -440,8 +481,11 @@ svg {
     align-items: center;
     color: $positive;
     display: flex;
-    margin-right: .5rem;
+    margin-right: .55rem;
     padding-bottom: .5rem;
+    .icon {
+      margin-right: .1rem;
+    }
     &.negative {
       color: $negative;
     }
@@ -455,7 +499,7 @@ svg {
     }
     p {
       box-sizing: border-box;
-      padding: .25rem;
+      padding: .25rem 0;
     }
   }
 }

@@ -108,25 +108,25 @@ class ActionManagment extends React.Component {
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item negative">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item negative">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
 
 
@@ -179,25 +179,25 @@ class ActionManagment extends React.Component {
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item negative">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item negative">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
 
 
@@ -250,25 +250,25 @@ class ActionManagment extends React.Component {
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item negative">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item negative">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
 
 
@@ -321,25 +321,25 @@ class ActionManagment extends React.Component {
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item negative">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
                       <div className="results-item negative">
                         <div className="icon">
                           <Isvg src="/images/stats/constitution.svg" />
                         </div>
-                        <p>+ 1000</p>
+                        <p>+1000</p>
                       </div>
 
 
