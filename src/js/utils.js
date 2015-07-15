@@ -44,6 +44,7 @@ function jsonToUrl(obj) {
 var ajax = {
     request: function(method, url, params={}) {
         return new Promise(function(resolve, reject) {
+            console.log(params);
             var strParams = jsonToUrl(params);
             var http = new XMLHttpRequest();
 
@@ -59,8 +60,8 @@ var ajax = {
                 }
             };
 
-            http.open(method, url, true);
-            http.send(strParams);
+            http.open(method, url + '?' + strParams, true);
+            http.send(null);
         });
     },
     get: function(url, params={}) {

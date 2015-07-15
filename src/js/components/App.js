@@ -6,8 +6,8 @@ import Guild from './Guild';
 import GameZone from './GameZone';
 import TurnResume from './TurnResume';
 import {ImmutableProps} from '../utils';
-import * as api from '../api';
 import * as data from '../data';
+import gameEngine from '../gameEngine';
 
 @ImmutableProps
 class App extends React.Component {
@@ -42,10 +42,10 @@ structure.on('swap', function () {
 });
 
 export default function app() {
-    api.getTurn().then(function(_data_) {
-        _data_ = Immutable.fromJS(_data_);
+    gameEngine.getTurn().then(function(turn) {
+        turn = Immutable.fromJS(turn);
 
         let cursor = data.getNewCursor();
-        cursor.set('turn', _data_);
+        cursor.set('turn', turn);
     });
 }
