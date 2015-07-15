@@ -4,9 +4,16 @@ import {ImmutableProps} from '../utils';
 import Isvg from 'react-inlinesvg';
 import Place from './Place';
 import Action from './Action';
+import boardActions from '../actions/board.actions';
 
 @ImmutableProps
 class ActionManagment extends React.Component {
+    selectAction(action) {
+        boardActions.addAction(action);
+    }
+    removeAction(action) {
+        boardActions.removeAction(action);
+    }
     render() {
         let places = this.props.places;
         let freeActions = this.props.freeActions;
@@ -19,11 +26,11 @@ class ActionManagment extends React.Component {
         if (activePlace) {
             renderActions = (
                 <div className="column col-action">
-                {activePlace.get('actions').map(function(action) {
-                    return <Action key={action.get('slug')} action={action} />
+                {activePlace.get('actions').map((action) => {
+                    return <Action key={action.get('slug')} action={action} onSelect={this.selectAction.bind(this)} />
                 })}
-                {freeActions.map(function(action) {
-                    return <Action key={action.get('slug')} action={action} />
+                {freeActions.map((action) => {
+                    return <Action key={action.get('slug')} action={action} onSelect={this.selectAction.bind(this)} />
                 })}
                 </div>
             )
@@ -32,8 +39,8 @@ class ActionManagment extends React.Component {
         if (selectedActions.size) {
             renderSelectedActions = (
                 <div className="column col-action">
-                {selectedActions.map(function(action) {
-                    return <Action key={action.get('slug')} action={action.get('action')} />
+                {selectedActions.map((action) => {
+                    return <Action key={action.get('slug')} action={action.get('action')} onSelect={this.removeAction.bind(this, action)} />
                 })}
                 </div>
             )

@@ -1,14 +1,13 @@
 import React from 'react';
 
 import {ImmutableProps} from '../utils';
-import boardActions from '../actions/board.actions';
 
 import Isvg from 'react-inlinesvg';
 
 @ImmutableProps
 class Action extends React.Component {
     selectAction() {
-        boardActions.addAction(this.props.action);
+        this.props.onSelect(this.props.action);
     }
     render() {
         let action = this.props.action;

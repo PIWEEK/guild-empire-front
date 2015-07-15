@@ -26,6 +26,14 @@ let boardActions = {
         if (!actions.includes(action)) {
             actions.push(action);
         }
+    },
+    removeAction: function(action) {
+        let actions = this.cursor.get('actions').deref();
+        let slug = action.get('slug');
+
+        actions = actions.filter((action) => action.get('slug') != slug);
+
+        this.cursor.set('actions', actions);
     }
 };
 
