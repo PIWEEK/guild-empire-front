@@ -15,6 +15,12 @@ class Guild extends React.Component {
     render() {
         let guild = this.props.guild;
 
+        let gold = guild.deref().filter((item) => item.get('slug') === 'gold').get(0);
+        let wood = guild.deref().filter((item) => item.get('slug') === 'wood').get(0);
+        let influence = guild.deref().filter((item) => item.get('slug') === 'influence').get(0);
+        let reputation = guild.deref().filter((item) => item.get('slug') === 'reputation').get(0);
+        let infamy = guild.deref().filter((item) => item.get('slug') === 'infamy').get(0);
+
         return (
           <div className="guild-container">
             <div className="guild-avatar">
@@ -30,8 +36,8 @@ class Guild extends React.Component {
                     <Isvg src="/images/currency/gold.svg" />
                   </div>
                   <div className="text">
-                    <span className="ammount">{guild.get('gold')}</span>
-                    <span className="income">(+ {guild.get('gold')})</span>
+                    <span className="ammount">{gold.get('value')}</span>
+                    <span className="income">(+ {gold.get('value')})</span>
                   </div>
                 </div>
 
@@ -40,8 +46,8 @@ class Guild extends React.Component {
                     <Isvg src="/images/currency/influence.svg" />
                   </div>
                   <div className="text">
-                    <span className="ammount">{guild.get('influence')}</span>
-                    <span className="income">(+{guild.get('influence')})</span>
+                    <span className="ammount">{influence.get('value')}</span>
+                    <span className="income">(+{influence.get('value')})</span>
                   </div>
                 </div>
 
@@ -50,8 +56,8 @@ class Guild extends React.Component {
                     <Isvg src="/images/currency/reputation.svg" />
                   </div>
                   <div className="text">
-                    <span className="ammount">{guild.get('reputation')}</span>
-                    <span className="income">(+{guild.get('reputation')})</span>
+                    <span className="ammount">{reputation.get('value')}</span>
+                    <span className="income">(+{reputation.get('value')})</span>
                   </div>
                 </div>
 
@@ -60,8 +66,8 @@ class Guild extends React.Component {
                     <Isvg src="/images/currency/infamy.svg" />
                   </div>
                   <div className="text">
-                    <span className="ammount">{guild.get('infamy')}</span>
-                    <span className="income">(+{guild.get('infamy')})</span>
+                    <span className="ammount">{infamy.get('value')}</span>
+                    <span className="income">(+{infamy.get('value')})</span>
                   </div>
                 </div>
 
