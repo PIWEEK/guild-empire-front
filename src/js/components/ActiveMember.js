@@ -6,100 +6,42 @@ import Isvg from 'react-inlinesvg';
 @ImmutableProps
 class ActiveMember extends React.Component {
     render() {
+        let member = this.props.member;
+
         return (
           <div className="active-member">
             <div className="avatar"></div>
             <div className="content">
               <div className="data">
                 <div className="credentials">
-                  <h1>Active Member Name</h1>
-                  <h2>Guild Leader</h2>
+                  <h1>{member.get('name')}</h1>
+                  <h2>{member.get('archetype')}</h2>
                 </div>
                 <ul className="stats">
-                  <li>
+                  {member.get('skills').map(function(skill){
+                  return (<li className="positive">
                     <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">Constitution</div>
-                    <div className="ammount">35</div>
-                  </li>
-                  <li className="positive">
-                    <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">Constitution</div>
-                    <div className="ammount">35</div>
-                  </li>
-                  <li className="negative">
-                    <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">Constitution</div>
-                    <div className="ammount">35</div>
-                  </li>
-                  <li>
-                    <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">Constitution</div>
-                    <div className="ammount">35</div>
-                  </li>
-                  <li className="positive">
-                    <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">Constitution</div>
-                    <div className="ammount">35</div>
-                  </li>
-                  <li className="negative">
-                    <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">Constitution</div>
-                    <div className="ammount">35</div>
-                  </li>
-                  <li>
-                    <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">Constitution</div>
-                    <div className="ammount">35</div>
-                  </li>
-                  <li className="positive">
-                    <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">Constitution</div>
-                    <div className="ammount">35</div>
-                  </li>
+                    <div className="name">{skill.get('name')}</div>
+                    <div className="ammount">{skill.get('value')}</div>
+                  </li>)
+                  })}
                 </ul>
               </div>
 
               <div className="condition">
                 <h1>Conditions</h1>
                 <ul>
-                  <li>
+                {member.get('conditions').map(function(condition){
+                  return (<li>
                     <div className="image">
                       <div className="tooltip">
-                        Soy un tooltip con texto util que me activo en hover
+                        {condition.get('name')}
                       </div>
                     </div>
-                  </li>
-                  <li>
-                    <div className="image">
-                      <div className="tooltip">
-                        Soy un tooltip con texto util que me activo en hover
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="image">
-                      <div className="tooltip">
-                        Soy un tooltip con texto util que me activo en hover
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="image">
-                      <div className="tooltip">
-                        Soy un tooltip con texto util que me activo en hover
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="image">
-                      <div className="tooltip">
-                        Soy un tooltip con texto util que me activo en hover
-                      </div>
-                    </div>
-                  </li>
+                  </li>)
+                })}
                 </ul>
               </div>
-
             </div>
           </div>
         );

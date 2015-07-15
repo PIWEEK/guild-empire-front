@@ -1,4 +1,5 @@
 export const defaultData = {
     showResume: false,
-    turn: {}
+    turn: {},
+    activeMember: null
 };

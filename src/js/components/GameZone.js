@@ -9,11 +9,17 @@ import Isvg from 'react-inlinesvg';
 @ImmutableProps
 class GameZone extends React.Component {
     render() {
+        let activeMember = this.props.activeMember;
+
+        if (!activeMember) {
+            activeMember = this.props.turn.getIn(['guild', 'members']).get(0);
+        }
+
         return (
           <div className="game-zone-container">
             <div className="member-managment-container">
-              <ActiveMember />
-              <MemberList />
+              <ActiveMember member={activeMember} />
+              <MemberList members={this.props.turn.getIn(['guild', 'members'])}/>
             </div>
             <ActionManagment />
           </div>
