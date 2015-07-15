@@ -73,6 +73,23 @@ var ajax = {
 
 export {ajax};
 
+export function getSearchParameter(param) {
+    var prmstr = window.location.search.substr(1);
+    var params = prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+
+    return params[param];
+}
+
+function transformToAssocArray( prmstr ) {
+    var params = {};
+    var prmarr = prmstr.split("&");
+    for ( var i = 0; i < prmarr.length; i++) {
+        var tmparr = prmarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    return params;
+}
+
 var skills = {
     'martial-arts': 'martial-art',
     'eloquence': 'eloquence',
@@ -80,7 +97,8 @@ var skills = {
     'gathering': 'gathering',
     'loyalty': 'loyalty',
     'constitution': 'constitution',
-    'dexterity': 'crafting'
+    'dexterity': 'dexterity',
+    'crafting': 'crafting'
 };
 
 var parseIcons = {

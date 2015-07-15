@@ -9,8 +9,6 @@ class ActiveMember extends React.Component {
     render() {
         let member = this.props.member;
 
-        console.log(member.toJS());
-
         return (
           <div className="active-member">
             <div className="avatar">
@@ -24,7 +22,7 @@ class ActiveMember extends React.Component {
                 </div>
                 <ul className="stats">
                   {member.get('skills').map(function(skill){
-                      return <Skill skill={skill}/>
+                      return <Skill key={skill.get('slug')} skill={skill}/>
                   })}
                 </ul>
               </div>

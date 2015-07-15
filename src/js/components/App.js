@@ -46,13 +46,16 @@ structure.on('swap', function () {
 });
 
 export default function app() {
-    gameEngine.getTurn().then(function(turn) {
-        turn = Immutable.fromJS(turn);
+    gameEngine
+        .init()
+        .then(() => gameEngine.getTurn())
+        .then(function(turn) {
+            turn = Immutable.fromJS(turn);
 
-        let cursor = data.getNewCursor();
-        let activeMember = turn.getIn(['guild', 'members']).get(0);
+            let cursor = data.getNewCursor();
+            let activeMember = turn.getIn(['guild', 'members']).get(0);
 
-        cursor.set('turn', turn);
-        cursor.set('activeMember', activeMember);
-    });
+            cursor.set('turn', turn);
+            cursor.set('activeMember', activeMember);
+        });
 }
