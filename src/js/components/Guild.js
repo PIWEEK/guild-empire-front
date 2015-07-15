@@ -18,14 +18,11 @@ class Guild extends React.Component {
         return (
           <div className="guild-container">
             <div className="guild-avatar">
-
             </div>
              <div className="guild-data">
+              <h1>Guild Name Goes Here</h1>
 
-              <div className="guild-name">
-                <h1>Guild Name Goes Here</h1>
-                <h2>Your guild Rank</h2>
-              </div>
+
               <div className="guild-assets">
 
                 <div className="asset gold">
@@ -33,14 +30,8 @@ class Guild extends React.Component {
                     <Isvg src="/images/currency/gold.svg" />
                   </div>
                   <div className="text">
-                    <div className="item">
-                      <span className="left">Gold:</span>
-                      <span className="right">{guild.get('gold')}</span>
-                    </div>
-                    <div className="item">
-                      <span className="left">Income:</span>
-                      <span className="right">1.000.000</span>
-                    </div>
+                    <span className="ammount">{guild.get('gold')}</span>
+                    <span className="income">(+ {guild.get('gold')})</span>
                   </div>
                 </div>
 
@@ -49,14 +40,8 @@ class Guild extends React.Component {
                     <Isvg src="/images/currency/influence.svg" />
                   </div>
                   <div className="text">
-                    <div className="item">
-                      <span className="left">Influence:</span>
-                      <span className="right">{guild.get('influence')}</span>
-                    </div>
-                    <div className="item reputation">
-                      <span className="left">Income:</span>
-                      <span className="right">1.000.000</span>
-                    </div>
+                    <span className="ammount">{guild.get('influence')}</span>
+                    <span className="income">(+{guild.get('influence')})</span>
                   </div>
                 </div>
 
@@ -65,14 +50,8 @@ class Guild extends React.Component {
                     <Isvg src="/images/currency/reputation.svg" />
                   </div>
                   <div className="text">
-                    <div className="item">
-                      <span className="left">Reputation:</span>
-                      <span className="right">{guild.get('reputation')}</span>
-                    </div>
-                    <div className="item">
-                      <span className="left">Income:</span>
-                      <span className="right">1.000.000</span>
-                    </div>
+                    <span className="ammount">{guild.get('reputation')}</span>
+                    <span className="income">(+{guild.get('reputation')})</span>
                   </div>
                 </div>
 
@@ -81,24 +60,17 @@ class Guild extends React.Component {
                     <Isvg src="/images/currency/infamy.svg" />
                   </div>
                   <div className="text">
-                    <div className="item">
-                      <span className="left">Infamy:</span>
-                      <span className="right">{guild.get('infamy')}</span>
-                    </div>
-                    <div className="item">
-                      <span className="left">Income:</span>
-                      <span className="right">1.000.000</span>
-                    </div>
+                    <span className="ammount">{guild.get('infamy')}</span>
+                    <span className="income">(+{guild.get('infamy')})</span>
                   </div>
                 </div>
 
               </div>
-              <div className="guild-interactions">
-                <div className="btn-blue" onClick={this.showResume}>Show Turn Resume</div>
-              </div>
-              <div className="guild-end-turn">
-                <div className="btn-blue">End Turn</div>
-              </div>
+
+             </div>
+             <div className="guild-interactions">
+               <div className="btn-blue" onClick={this.showResume}>Show Turn Resume</div>
+               <div className="btn-blue">End Turn</div>
              </div>
 
              <Music musicOn={this.props.musicOn} />

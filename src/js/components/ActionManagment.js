@@ -22,18 +22,20 @@ class ActionManagment extends React.Component {
         }
 
         return (
-          <div className="action-managment-container">
-            <div className="column">
-            {places.map(function(place) {
-                return <Place place={place} />
-            })}
-            </div>
+          <div className="action-managment-wrapper">
+            <div className="action-managment-container">
+              <div className="column">
+              {places.map(function(place) {
+                  return <Place place={place} />
+              })}
+              </div>
 
-            <div className="column col-action">
-            {freeActions.map(function(action) {
-                return <Action action={action} />
-            })}
-            {actions}
+              <div className="column col-action">
+              {freeActions.map(function(action) {
+                  return <Action action={action} />
+              })}
+              {actions}
+              </div>
             </div>
           </div>
         );

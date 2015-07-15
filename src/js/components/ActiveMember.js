@@ -27,7 +27,6 @@ class ActiveMember extends React.Component {
                   })}
                 </ul>
               </div>
-
               <div className="condition">
                 <h1>Conditions</h1>
                 <ul>
@@ -43,6 +42,7 @@ class ActiveMember extends React.Component {
                 </ul>
               </div>
             </div>
+
           </div>
         );
     }

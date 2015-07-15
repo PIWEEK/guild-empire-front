@@ -19,9 +19,11 @@ class GameZone extends React.Component {
 
         return (
           <div className="game-zone-container">
-            <div className="member-managment-container">
-              <ActiveMember member={activeMember} />
-              <MemberList members={turn.getIn(['guild', 'members'])}/>
+            <div className="member-managment-wrapper">
+              <div className="member-managment-container">
+                <ActiveMember member={activeMember} />
+                <MemberList members={this.props.turn.getIn(['guild', 'members'])}/>
+              </div>
             </div>
             <ActionManagment
                 places={turn.get('places')}
