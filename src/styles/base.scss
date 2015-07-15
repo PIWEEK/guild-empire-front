@@ -83,6 +83,11 @@ svg {
   background: blue;
 }
 
+.btn-green {
+  @extend %btn;
+  background: green;
+}
+
 .guild-container {
   background: url(../images/texture/managment-background.jpeg);
   border-bottom: solid 1px #f2f2e5;
