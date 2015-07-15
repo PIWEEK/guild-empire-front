@@ -16,9 +16,16 @@ class ActionManagment extends React.Component {
         let actions;
 
         if (activePlace) {
-            actions = activePlace.get('actions').map(function(action) {
-                return <Action action={action} />
-            })
+            actions = (
+                <div className="column col-action">
+                {activePlace.get('actions').map(function(action) {
+                    return <Action action={action} />
+                })}
+                {freeActions.map(function(action) {
+                    return <Action action={action} />
+                })}
+                </div>
+            )
         }
 
         return (
@@ -29,13 +36,7 @@ class ActionManagment extends React.Component {
                   return <Place place={place} />
               })}
               </div>
-
-              <div className="column col-action">
-              {freeActions.map(function(action) {
-                  return <Action action={action} />
-              })}
               {actions}
-              </div>
             </div>
           </div>
         );
