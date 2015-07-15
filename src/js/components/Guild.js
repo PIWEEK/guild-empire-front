@@ -3,6 +3,7 @@ import React from 'react';
 import {ImmutableProps} from '../utils';
 import commonActions from '../actions/common.actions';
 import Isvg from 'react-inlinesvg';
+import Music from './Music';
 
 @ImmutableProps
 class Guild extends React.Component {
@@ -99,7 +100,10 @@ class Guild extends React.Component {
                 <div className="btn-blue">End Turn</div>
               </div>
              </div>
-           </div>
+
+             <Music musicOn={this.props.musicOn} />
+
+            </div>
         );
     }
 }

@@ -20,7 +20,7 @@ class App extends React.Component {
 
         return (
            <div className="main-container">
-              <Guild guild={this.props.cursor.getIn(['turn', 'guild', 'assets'])} />
+                <Guild guild={this.props.cursor.getIn(['turn', 'guild', 'assets'])} musicOn={this.props.cursor.get('musicOn')} />
               <GameZone
                   activeMember={this.props.cursor.get('activeMember')}
                   activePlace={this.props.cursor.get('activePlace')}

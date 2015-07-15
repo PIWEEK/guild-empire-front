@@ -6,6 +6,12 @@ let commonActions = {
     },
     closeResume: function() {
         this.cursor.set('showResume', false);
+    },
+
+    musicToggle: function() {
+        let musicOn = this.cursor.get('musicOn');
+        console.log(musicOn);
+        this.cursor.set('musicOn', !musicOn);
     }
 };
 

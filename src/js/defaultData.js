@@ -2,5 +2,6 @@ export const defaultData = {
     showResume: false,
     turn: {},
     activeMember: null,
-    activePlace: null
+    activePlace: null,
+    musicOn: true
 };
