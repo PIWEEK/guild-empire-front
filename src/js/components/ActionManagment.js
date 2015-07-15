@@ -19,10 +19,10 @@ class ActionManagment extends React.Component {
             actions = (
                 <div className="column col-action">
                 {activePlace.get('actions').map(function(action) {
-                    return <Action action={action} />
+                    return <Action key={action.get('slug')} action={action} />
                 })}
                 {freeActions.map(function(action) {
-                    return <Action action={action} />
+                    return <Action key={action.get('slug')} action={action} />
                 })}
                 </div>
             )
@@ -33,7 +33,7 @@ class ActionManagment extends React.Component {
             <div className="action-managment-container">
               <div className="column">
               {places.map(function(place) {
-                  return <Place place={place} />
+                  return <Place key={place.get('slug')} place={place} />
               })}
               </div>
               {actions}

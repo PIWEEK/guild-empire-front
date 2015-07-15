@@ -44,7 +44,6 @@ function jsonToUrl(obj) {
 var ajax = {
     request: function(method, url, params={}) {
         return new Promise(function(resolve, reject) {
-            console.log(params);
             var strParams = jsonToUrl(params);
             var http = new XMLHttpRequest();
 

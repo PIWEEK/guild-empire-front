@@ -8,7 +8,9 @@ import Isvg from 'react-inlinesvg';
 @ImmutableProps
 class Action extends React.Component {
     render() {
-        let place = this.props.action;
+        let action = this.props.action;
+
+        console.log(action.toJS());
 
         return (
               <div className="col-item place">
