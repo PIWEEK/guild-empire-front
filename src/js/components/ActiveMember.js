@@ -2,11 +2,14 @@ import React from 'react';
 
 import {ImmutableProps} from '../utils';
 import Isvg from 'react-inlinesvg';
+import Skill from './Skill';
 
 @ImmutableProps
 class ActiveMember extends React.Component {
     render() {
         let member = this.props.member;
+
+        console.log(member.toJS());
 
         return (
           <div className="active-member">
@@ -21,11 +24,7 @@ class ActiveMember extends React.Component {
                 </div>
                 <ul className="stats">
                   {member.get('skills').map(function(skill){
-                  return (<li key={skill.get('slug')} className="positive">
-                    <div className="image"><Isvg src="/images/stats/constitution.svg" /></div>
-                    <div className="name">{skill.get('name')}</div>
-                    <div className="ammount">{skill.get('value')}</div>
-                  </li>)
+                      return <Skill skill={skill}/>
                   })}
                 </ul>
               </div>

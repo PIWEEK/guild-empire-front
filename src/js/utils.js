@@ -72,3 +72,21 @@ var ajax = {
 };
 
 export {ajax};
+
+var skills = {
+    'martial-arts': 'martial-art',
+    'eloquence': 'eloquence',
+    'stealth': 'subterfuge',
+    'gathering': 'gathering',
+    'loyalty': 'loyalty',
+    'constitution': 'constitution',
+    'dexterity': 'crafting'
+};
+
+var parseIcons = {
+    skill: function(slug) {
+        return skills[slug];
+    }
+};
+
+export {parseIcons};
