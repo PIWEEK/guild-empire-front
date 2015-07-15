@@ -4,7 +4,8 @@ const defaultData = {
     activeMember: null,
     activePlace: null,
     musicOn: true,
-    actions: []
+    actions: [],
+    game: {}
 };
 
 export default defaultData;

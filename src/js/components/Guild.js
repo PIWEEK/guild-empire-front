@@ -14,6 +14,7 @@ class Guild extends React.Component {
     }
     render() {
         let guild = this.props.guild;
+        let guildName = this.props.guildName;
 
         let gold = guild.deref().filter((item) => item.get('slug') === 'gold').get(0);
         let wood = guild.deref().filter((item) => item.get('slug') === 'wood').get(0);
@@ -26,7 +27,7 @@ class Guild extends React.Component {
             <div className="guild-avatar">
             </div>
              <div className="guild-data">
-              <h1>Guild Name Goes Here</h1>
+              <h1>{guildName}</h1>
 
 
               <div className="guild-assets">
