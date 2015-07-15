@@ -10,7 +10,6 @@ let commonActions = {
 
     musicToggle: function() {
         let musicOn = this.cursor.get('musicOn');
-        musicOn = musicOn===undefined || musicOn===true?true:false;
         this.cursor.set('musicOn', !musicOn);
     }
 };
