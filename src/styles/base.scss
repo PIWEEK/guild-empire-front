@@ -1,4 +1,4 @@
-@import 'reset';
+ @import 'reset';
 @import 'turn-resume';
 
 $main-background: #34373c;
@@ -107,7 +107,6 @@ svg {
     display: none;
   }
   .guild-avatar {
-    background: blue;
     height: 39px;
     fill: white;
     width: 100px;
@@ -187,7 +186,9 @@ svg {
   height: 100%;
   width: 100%;
   .member-managment-wrapper {
-    padding: 1rem;
+    background: url(../images/places/forest.png);
+    background-position: center center;
+    background-size: cover;
     width: 100%;
     max-width: 100%;
     flex-grow: 0;
@@ -195,13 +196,17 @@ svg {
   }
   .member-managment-container {
     box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    background: rgba(0,0,0,.5);
     display: flex;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 1rem auto;
+    padding: 1rem;
   }
   .action-managment-wrapper {
-    background: #000;
+    background: url(../images/texture/wood-texture.jpg) #000;
     width: 100%;
     flex-grow: 1;
     flex-shrink: 0;
@@ -222,10 +227,16 @@ svg {
   flex-shrink: 0;
   flex-grow: 0;
   .avatar {
-    background: orange;
+    border-radius: 200px;
+    border: solid 1px orange;
     height: 200px;
     width: 200px;
     margin-right: 1rem;
+    overflow: hidden;
+    img {
+      height: 200px;
+      width: 200px;
+    }
   }
   .content {
     background: #000;
@@ -341,9 +352,13 @@ svg {
     position: relative;
     .avatar {
       border-radius: 90px;
-      background: red;
       height: 90px;
+      overflow: hidden;
       width: 90px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
   .actions {
@@ -532,4 +547,65 @@ svg {
       padding: .25rem 0;
     }
   }
+}
+
+$guild-red: #cb342b;
+$guild-orange: #e57c17;
+$guild-green: #a3c14b;
+$guild-yellow: #f1c545;
+$guild-purple: #8d4ca6;
+$guild-blue: #3a6da1;
+$guild-black: #000000;
+$guild-pink: #e798c8;
+
+
+@mixin guildPersonalization($color) {
+  .guild-avatar {
+    background: $color;
+    transition: all 1s ease;
+  }
+  .active-member .avatar {
+    background: $color;
+    transition: all 1s ease;
+  }
+  .member-list .member .avatar {
+    background: $color;
+    transition: all 1s ease;
+  }
+  .member-managment-container {
+    border-color: $color;
+    transition: all 1s ease;
+  }
+}
+
+
+.guild-red {
+  @include guildPersonalization($guild-red);
+}
+
+.guild-orange {
+  @include guildPersonalization($guild-orange);
+}
+
+.guild-green {
+  @include guildPersonalization($guild-green);
+}
+
+.guild-yellow {
+  @include guildPersonalization($guild-yellow);
+}
+
+.guild-purple {
+  @include guildPersonalization($guild-purple);
+}
+
+.guild-blue {
+  @include guildPersonalization($guild-blue);
+}
+
+.guild-black {
+  @include guildPersonalization($guild-black);
+}
+.guild-pink {
+  @include guildPersonalization($guild-pink);
 }

@@ -10,7 +10,9 @@ class ActiveMember extends React.Component {
 
         return (
           <div className="active-member">
-            <div className="avatar"></div>
+            <div className="avatar">
+              <img src="/images/characters/master_3.png" />
+            </div>
             <div className="content">
               <div className="data">
                 <div className="credentials">
