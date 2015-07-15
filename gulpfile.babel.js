@@ -10,6 +10,7 @@ import webpack from 'webpack';
 import webpackConfig from './webpack.config.js';
 import gutil from 'gulp-util';
 import rename from 'gulp-rename';
+import plumber from 'gulp-plumber';
 
 const paths = {
     dist: 'dist/',
@@ -19,6 +20,7 @@ const paths = {
 
 gulp.task('js-lint', function () {
     return gulp.src(paths.js)
+        .pipe(plumber())
         .pipe(cached('jsLint'))
         .pipe(eslint())
         .pipe(eslint.format());
@@ -49,6 +51,7 @@ gulp.task('server', function(callback) {
 
 gulp.task('sass', [], function() {
     return gulp.src('src/styles/base.scss')
+        .pipe(plumber())
         .pipe(sass())
         .pipe(autoprefixer({
             cascade: false
