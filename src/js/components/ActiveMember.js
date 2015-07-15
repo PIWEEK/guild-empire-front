@@ -9,6 +9,26 @@ class ActiveMember extends React.Component {
     render() {
         let member = this.props.member;
 
+        let conditionRender;
+        if (member.get('conditions').size) {
+            conditionRender = (
+              <div className="condition">
+                <h1>Conditions</h1>
+                <ul>
+                {member.get('conditions').map(function(condition){
+                  return (<li key={condition.get('slug')} >
+                    <div className="image">
+                      <div className="tooltip">
+                        {condition.get('name')}
+                      </div>
+                    </div>
+                  </li>)
+                })}
+                </ul>
+              </div>
+            )
+        }
+
         return (
           <div className="active-member">
             <div className="avatar">
@@ -26,20 +46,7 @@ class ActiveMember extends React.Component {
                   })}
                 </ul>
               </div>
-              <div className="condition">
-                <h1>Conditions</h1>
-                <ul>
-                {member.get('conditions').map(function(condition){
-                  return (<li key={condition.get('slug')} >
-                    <div className="image">
-                      <div className="tooltip">
-                        {condition.get('name')}
-                      </div>
-                    </div>
-                  </li>)
-                })}
-                </ul>
-              </div>
+              {conditionRender}
             </div>
 
           </div>
