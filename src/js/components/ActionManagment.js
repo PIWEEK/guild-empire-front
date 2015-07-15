@@ -11,18 +11,29 @@ class ActionManagment extends React.Component {
         let places = this.props.places;
         let freeActions = this.props.freeActions;
         let activePlace = this.props.activePlace;
+        let selectedActions = this.props.selectedActions;
 
-
-        let actions;
+        let renderActions;
+        let renderSelectedActions;
 
         if (activePlace) {
-            actions = (
+            renderActions = (
                 <div className="column col-action">
                 {activePlace.get('actions').map(function(action) {
                     return <Action key={action.get('slug')} action={action} />
                 })}
                 {freeActions.map(function(action) {
                     return <Action key={action.get('slug')} action={action} />
+                })}
+                </div>
+            )
+        }
+
+        if (selectedActions.size) {
+            renderSelectedActions = (
+                <div className="column col-action">
+                {selectedActions.map(function(action) {
+                    return <Action key={action.get('slug')} action={action.get('action')} />
                 })}
                 </div>
             )
@@ -37,7 +48,8 @@ class ActionManagment extends React.Component {
                   return <Place key={place.get('slug')} place={place} />
               })}
               </div>
-              {actions}
+              {renderActions}
+              {renderSelectedActions}
             </div>
             <div className="decor-action-managment"></div>
           </div>

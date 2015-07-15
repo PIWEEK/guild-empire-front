@@ -7,19 +7,20 @@ import Isvg from 'react-inlinesvg';
 
 @ImmutableProps
 class Action extends React.Component {
+    selectAction() {
+        boardActions.addAction(this.props.action);
+    }
     render() {
         let action = this.props.action;
 
-        console.log(action.toJS());
-
         return (
-              <div className="col-item place">
+              <div onClick={this.selectAction.bind(this)} className="col-item place">
                 <div className="item-row name">
                   <div className="icon">
                     <Isvg src="/images/stats/constitution.svg" />
                   </div>
                   <div className="name">
-                    Im an Action
+                    {action.get('name')}
                   </div>
                   <div className="turns">
                     <div className="icon">

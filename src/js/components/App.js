@@ -22,6 +22,7 @@ class App extends React.Component {
            <div className="main-container">
                 <Guild guild={this.props.cursor.getIn(['turn', 'guild', 'assets'])} musicOn={this.props.cursor.get('musicOn')} />
               <GameZone
+                  selectedActions={this.props.cursor.get('actions')}
                   activeMember={this.props.cursor.get('activeMember')}
                   activePlace={this.props.cursor.get('activePlace')}
                   turn={this.props.cursor.get('turn')} />
@@ -33,7 +34,10 @@ class App extends React.Component {
 
 function render() {
     let cursor = data.getNewCursor();
-    React.render(<App cursor={cursor}/>, document.getElementById('root'));
+
+    if (cursor.get('turn')) {
+        React.render(<App cursor={cursor}/>, document.getElementById('root'));
+    }
 }
 
 var structure = data.getStructure();
@@ -46,6 +50,9 @@ export default function app() {
         turn = Immutable.fromJS(turn);
 
         let cursor = data.getNewCursor();
+        let activeMember = turn.getIn(['guild', 'members']).get(0);
+
         cursor.set('turn', turn);
+        cursor.set('activeMember', activeMember);
     });
 }

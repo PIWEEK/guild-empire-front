@@ -1,6 +1,6 @@
 const defaultData = {
     showResume: false,
-    turn: {},
+    turn: null,
     activeMember: null,
     activePlace: null,
     musicOn: true,

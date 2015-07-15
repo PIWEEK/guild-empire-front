@@ -5,6 +5,7 @@ import ActiveMember from './ActiveMember';
 import MemberList from './MemberList';
 import ActionManagment from './ActionManagment';
 import Isvg from 'react-inlinesvg';
+import boardActions from '../actions/board.actions';
 
 @ImmutableProps
 class GameZone extends React.Component {
@@ -12,9 +13,11 @@ class GameZone extends React.Component {
         let activeMember = this.props.activeMember;
         let activePlace = this.props.activePlace;
         let turn = this.props.turn;
+        let selectedActions = this.props.selectedActions;
 
-        if (!activeMember) {
-            activeMember = turn.getIn(['guild', 'members']).get(0);
+        let activeMemberTemplate;
+        if(activeMember) {
+            activeMemberTemplate = <ActiveMember member={activeMember} />;
         }
 
         return (
@@ -24,7 +27,7 @@ class GameZone extends React.Component {
                 <div className="degrade"></div>
               </div>
               <div className="member-managment-container">
-                <ActiveMember member={activeMember} />
+                {activeMemberTemplate}
                 <MemberList members={this.props.turn.getIn(['guild', 'members'])}/>
               </div>
               <div className="decor-managment-managment ">
@@ -32,6 +35,7 @@ class GameZone extends React.Component {
               </div>
             </div>
             <ActionManagment
+                selectedActions={selectedActions}
                 places={turn.get('places')}
                 activePlace={activePlace}
                 freeActions={turn.get('free_actions')} />
