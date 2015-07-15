@@ -6,7 +6,7 @@ import Guild from './Guild';
 import GameZone from './GameZone';
 import TurnResume from './TurnResume';
 import {ImmutableProps} from '../utils';
-import turn from '../turn';
+import * as api from '../api';
 import * as data from '../data';
 
 @ImmutableProps
@@ -42,7 +42,7 @@ structure.on('swap', function () {
 });
 
 export default function app() {
-    turn().then(function(_data_) {
+    api.getTurn().then(function(_data_) {
         _data_ = Immutable.fromJS(_data_);
 
         let cursor = data.getNewCursor();
