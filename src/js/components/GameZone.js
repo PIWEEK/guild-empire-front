@@ -18,11 +18,17 @@ class GameZone extends React.Component {
         }
 
         return (
-          <div className="game-zone-container">
+          <div className="game-zone-container guild-green">
             <div className="member-managment-wrapper">
+              <div className="decor-managment-managment reverse">
+                <div className="degrade"></div>
+              </div>
               <div className="member-managment-container">
                 <ActiveMember member={activeMember} />
                 <MemberList members={this.props.turn.getIn(['guild', 'members'])}/>
+              </div>
+              <div className="decor-managment-managment ">
+                <div className="degrade"></div>
               </div>
             </div>
             <ActionManagment

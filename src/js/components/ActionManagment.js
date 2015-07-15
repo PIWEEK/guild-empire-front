@@ -30,6 +30,7 @@ class ActionManagment extends React.Component {
 
         return (
           <div className="action-managment-wrapper">
+            <div className="decor-action-managment"></div>
             <div className="action-managment-container">
               <div className="column">
               {places.map(function(place) {
@@ -38,6 +39,7 @@ class ActionManagment extends React.Component {
               </div>
               {actions}
             </div>
+            <div className="decor-action-managment"></div>
           </div>
         );
     }

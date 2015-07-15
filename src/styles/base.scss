@@ -84,7 +84,7 @@ svg {
 }
 
 .guild-container {
-  background: #000;
+  background: url(../images/texture/managment-background.jpeg);
   border-bottom: solid 1px #f2f2e5;
   box-shadow: 1px 1px 10px #000;
   box-sizing: border-box;
@@ -186,30 +186,38 @@ svg {
   height: 100%;
   width: 100%;
   .member-managment-wrapper {
-    background: url(../images/places/forest.png);
+    background: black;
     background-position: center center;
     background-size: cover;
+    display: flex;
     width: 100%;
     max-width: 100%;
     flex-grow: 0;
     flex-shrink: 0;
   }
   .member-managment-container {
+    background: rgb(42, 28, 25);
+    border-radius: 15px;
+    border: solid 2px rgba(78, 73, 72, 0.75);
+    box-shadow: inset 0px 0px 109px 30px rgba(0,0,0,0.68);
     box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    background: rgba(0,0,0,.5);
     display: flex;
     width: 100%;
-    max-width: 1200px;
-    margin: 1rem auto;
+    margin: 1rem;
+    flex-basis: 1200px;
+    flex-shrink: 0;
+    flex-grow: 0;
     padding: 1rem;
   }
+  .decor-managment-managment {
+    width: 100%;
+  }
   .action-managment-wrapper {
-    background: url(../images/texture/wood-texture.jpg) #000;
     width: 100%;
     flex-grow: 1;
     flex-shrink: 0;
+    border-top-width: 2px;
+    border-style: solid;
   }
   .action-managment-container {
     display: flex;
@@ -221,6 +229,27 @@ svg {
   }
 }
 
+
+.decor-managment-managment {
+  background: url("../images/places/forest.png");
+  background-position: center left;
+  position: relative;
+  .degrade {
+    background: url("../images/places/degrade.png");
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 132px;
+  }
+  &.reverse {
+    background: url("../images/places/forest.png");
+    background-position: center left;
+    transform: scaleX(-1);
+  }
+}
+
+
 .active-member {
   align-items: center;
   display: flex;
@@ -228,7 +257,7 @@ svg {
   flex-grow: 0;
   .avatar {
     border-radius: 200px;
-    border: solid 1px orange;
+    border: solid 2px white;
     height: 200px;
     width: 200px;
     margin-right: 1rem;
@@ -572,7 +601,7 @@ $guild-pink: #e798c8;
     background: $color;
     transition: all 1s ease;
   }
-  .member-managment-container {
+  .action-managment-wrapper {
     border-color: $color;
     transition: all 1s ease;
   }
