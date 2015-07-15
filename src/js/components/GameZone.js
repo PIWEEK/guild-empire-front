@@ -10,18 +10,23 @@ import Isvg from 'react-inlinesvg';
 class GameZone extends React.Component {
     render() {
         let activeMember = this.props.activeMember;
+        let activePlace = this.props.activePlace;
+        let turn = this.props.turn;
 
         if (!activeMember) {
-            activeMember = this.props.turn.getIn(['guild', 'members']).get(0);
+            activeMember = turn.getIn(['guild', 'members']).get(0);
         }
 
         return (
           <div className="game-zone-container">
             <div className="member-managment-container">
               <ActiveMember member={activeMember} />
-              <MemberList members={this.props.turn.getIn(['guild', 'members'])}/>
+              <MemberList members={turn.getIn(['guild', 'members'])}/>
             </div>
-            <ActionManagment />
+            <ActionManagment
+                places={turn.get('places')}
+                activePlace={activePlace}
+                freeActions={turn.get('free_actions')} />
           </div>
         );
     }
