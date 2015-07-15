@@ -32,7 +32,7 @@ class ActiveMember extends React.Component {
         return (
           <div className="active-member">
             <div className="avatar">
-              <img src="/images/characters/master_3.png" />
+                <img src={`/images/characters/${member.get('slug')}.png`} />
             </div>
             <div className="content">
               <div className="data">
