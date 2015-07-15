@@ -62,11 +62,10 @@ gulp.task('sass', [], function() {
 
 gulp.task('watch', function() {
     gulp.watch(paths.js, ['js-lint']);
-    gulp.watch(paths.scss, ['scss-lint', 'sass']);
+    gulp.watch(paths.scss, ['sass']);
 });
 
 gulp.task('default', [
-    'scss-lint',
     'sass',
     'js-lint',
     'watch'], function () {

@@ -215,7 +215,22 @@ svg {
     padding: 1rem;
   }
   .decor-managment-managment {
+    background: url("../images/places/default.png");
+    background-position: center left;
+    position: relative;
     width: 100%;
+    .degrade {
+      background: url("../images/places/degrade.png");
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 132px;
+    }
+    &.reverse {
+      background-position: center left;
+      transform: scaleX(-1);
+    }
   }
   .action-managment-wrapper {
     width: 100%;
@@ -234,25 +249,43 @@ svg {
   }
 }
 
-
-.decor-managment-managment {
-  background: url("../images/places/forest.png");
-  background-position: center left;
-  position: relative;
-  .degrade {
-    background: url("../images/places/degrade.png");
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 132px;
-  }
-  &.reverse {
+.forest {
+  .decor-managment-managment {
     background: url("../images/places/forest.png");
-    background-position: center left;
-    transform: scaleX(-1);
   }
 }
+.mine {
+  .decor-managment-managment {
+    background: url("../images/places/mine.png");
+  }
+}
+.market {
+  .decor-managment-managment {
+    background: url("../images/places/market.png");
+  }
+}
+.port {
+  .decor-managment-managment {
+    background: url("../images/places/port.png");
+  }
+}
+.tavern {
+  .decor-managment-managment {
+    background: url("../images/places/tavern.png");
+  }
+}
+.church {
+  .decor-managment-managment {
+    background: url("../images/places/church.png");
+  }
+}
+.academy {
+  .decor-managment-managment {
+    background: url("../images/places/academy.png");
+  }
+}
+
+
 
 
 .active-member {
