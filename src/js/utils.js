@@ -2,7 +2,6 @@
 import _ from 'lodash';
 import Promise from 'bluebird';
 import * as data from './data';
-import $ from 'jquery';
 
 function unCursor(cursor) {
     if (!cursor || !cursor.deref) {
