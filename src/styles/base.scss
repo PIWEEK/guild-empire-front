@@ -82,13 +82,26 @@ svg {
 
 .btn-blue {
   @extend %btn;
-  background: blue;
+  align-self: center;
+  background: #107a8a;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Muli', sans-serif;
+  width: 180px;
+  padding: .5rem 1rem;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-right: .5rem;
+
 }
 
 .btn-green {
   @extend %btn;
   background: green;
 }
+
+
 
 .guild-container {
   background: url(../images/texture/managment-background.jpeg);
@@ -130,7 +143,7 @@ svg {
       width: 100%;
       height: 120px;
       outline: hidden;
-      z-index: 1000 ;
+      z-index: 300 ;
       svg {
         position: absolute;
         transform: translate(-50%,0);
@@ -536,12 +549,17 @@ svg {
 
 .column {
   display: flex;
-  flex-basis: 250px;
+  flex-basis: 144px;
   flex-direction: column;
   flex-shrink: 0;
   flex-grow: 0;
+  margin-right: 1rem;
+  &:last-child {
+    margin-right: 0;
+  }
+
   &.col-action {
-    flex-basis: 440px;
+    flex-basis: 396px;
   }
   .action-enter {
       opacity: 0;
@@ -557,26 +575,6 @@ svg {
     width: 100%;
     .name {
       align-self: center;
-    }
-  }
-  .col-item {
-    border: solid 2px $col-item-border;
-    border-radius: 10px;
-    color: $col-item-fill;
-    cursor: pointer;
-    align-items: center;
-    margin: 0 .5rem .25rem 0;
-    &:hover {
-      box-shadow: 1px 1px 10px white;
-    }
-    .col-item-decor {
-      background: $col-item-background;
-      box-shadow: inset 0px 0px 0px 2px rgba(14, 10, 1, 0.4);
-      border-radius: 7px;
-      border: solid 2px $col-item-deco-border;
-      flex-direction: column;
-      display: flex;
-      padding: .5rem .5rem;
     }
   }
 }
@@ -802,6 +800,7 @@ $guild-pink: #e798c8;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+  z-index: 501;
   .decor-row {
     display: flex;
     &.bottom {
@@ -1105,4 +1104,117 @@ $guild-pink: #e798c8;
   }
 
 
+}
+
+
+.lightbox-overlay {
+  align-items: center;
+  background: rgba(0,0,0,.5);
+  cursor: pointer;
+  display: flex;
+  left: 0;
+  top: 0;
+  margin: 0;
+  height: 100vh;
+  padding: 0;
+  position: fixed;
+  width: 100vw;
+  z-index: 500;
+}
+
+.guild-music {
+  display: flex;
+  align-content: center;
+  padding: 10px;
+  .on,.off {
+    align-content: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+  }
+  .off {
+    opacity: .5;
+  }
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+
+.col-item {
+  background: #000;
+  box-shadow: inset 0px 0px 10px 5px rgba(255,255,255,0.25);
+  margin-bottom: .5rem;
+  border-radius: 10px;
+  .decor-row {
+    display: flex;
+    &.bottom {
+      position: absolute;
+      bottom: -15px;
+      width: 100%;
+      z-index: 100;
+    }
+    &.top {
+      position: absolute;
+      top: -15px;
+      width: 100%;
+      z-index: 100;
+    }
+  }
+  svg {
+    fill: #fff;
+  }
+  .content {
+    width: 100%;
+    padding: .5rem;
+  }
+  .corner {
+    background: url("../images/texture/border-place-corner.png");
+    flex-basis: 12px;
+    height: 11px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    transform: rotate(0deg) scaleY(-1);
+    &.right-up {
+      transform: rotate(180deg);
+    }
+    &.left-bottom {
+      transform: rotate(0deg) scaleY(1);
+    }
+    &.right-bottom {
+      transform: rotate(0deg) scaleX(-1);
+    }
+  }
+  .top-border {
+    background: url("../images/texture/border-place-horizontal-2.png");
+    background-size: 100% 5px;
+    background-position: bottom center;
+    background-repeat: repeat-x;
+    transform: rotate(180deg);
+    width: 100%;
+  }
+  .bottom-border {
+    background: url("../images/texture/border-place-horizontal-2.png");
+    background-size: 100% 5px;
+    background-position: bottom center;
+    background-repeat: repeat-x;
+    height: 11px;
+    width: 100%;
+  }
+  .left-border {
+    background: url("../images/texture/border-place-vertical.png");
+    width: 4px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  .right-border {
+    background: url("../images/texture/border-place-vertical.png");
+    transform: scaleX(-1);
+    background-position: right top;
+    width: 5px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
 }

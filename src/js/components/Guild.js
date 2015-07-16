@@ -85,7 +85,7 @@ class Guild extends React.Component {
 
              </div>
              <div className="guild-interactions">
-               <div className="btn-blue" onClick={this.showResume}>Show Turn Resume</div>
+               <div className="btn-blue" onClick={this.showResume}>Turn Resume</div>
                <div className="btn-blue" onClick={this.endTurn}>End Turn</div>
              </div>
 

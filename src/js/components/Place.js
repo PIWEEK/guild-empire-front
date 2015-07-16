@@ -15,21 +15,26 @@ class Place extends React.Component {
 
         return (
           <div onClick={this.selectPlace.bind(this)} className="col-item place">
-            <div className="col-item-decor">
-              <div className="item-row">
-                <div className="icon">
-                  <Isvg src="/images/stats/constitution.svg" />
-                </div>
-                <div className="name">
-                  {place.get('name')}
-                </div>
-                <div className="turns">
-                  <div className="icon">
-                    <Isvg src="/images/stats/constitution.svg" />
+            <div className="decor-row">
+              <div className="corner"></div>
+              <div className="top-border"></div>
+              <div className="corner right-up"></div>
+            </div>
+            <div className="decor-row">
+              <div className="left-border"></div>
+              <div className="content">
+                <div className="item-row">
+                  <div className="name">
+                    {place.get('name')}
                   </div>
-                  <div className="text">1 - 5</div>
                 </div>
               </div>
+              <div className="right-border"></div>
+            </div>
+            <div className="decor-row">
+              <div className="corner left-bottom"></div>
+              <div className="bottom-border"></div>
+              <div className="corner right-bottom"></div>
             </div>
           </div>
         );

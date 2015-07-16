@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Isvg from 'react-inlinesvg';
 import {ImmutableProps} from '../utils';
 
 @ImmutableProps
