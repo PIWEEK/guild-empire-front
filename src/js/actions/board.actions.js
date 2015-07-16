@@ -26,16 +26,14 @@ let boardActions = {
 
         let action = Immutable.Map();
 
-        let slug = place.get('slug') + character.get('slug') + selectedAction.get('slug');
+        let slug = actions.size;
 
         action = action.set('slug', slug);
         action = action.set('action', selectedAction.deref());
         action = action.set('place', place);
         action = action.set('character', character);
 
-        if (!actions.includes(action)) {
-            actions.push(action);
-        }
+        actions.push(action);
     },
     removeAction: function(action) {
         let actions = this.cursor.get('actions').deref();
