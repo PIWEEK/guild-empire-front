@@ -3,7 +3,7 @@ import React from 'react';
 import {ImmutableProps} from '../utils';
 import commonActions from '../actions/common.actions';
 import Isvg from 'react-inlinesvg';
-import Event from './Event';
+import LastTurnMember from './LastTurnMember';
 
 @ImmutableProps
 class GameZone extends React.Component {
@@ -35,8 +35,8 @@ class GameZone extends React.Component {
                   </div>
 
                   <div>
-                      {lastTurn.map(function(e) {
-                          return <Event event={e} />
+                      {lastTurn.map(function(ltm) {
+                          return <LastTurnMember lastTurnMember={ltm} />
                       })}
                   </div>
 
