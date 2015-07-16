@@ -2,6 +2,7 @@
 import _ from 'lodash';
 import Promise from 'bluebird';
 import * as data from './data';
+import $ from 'jquery';
 
 function unCursor(cursor) {
     if (!cursor || !cursor.deref) {
@@ -60,6 +61,10 @@ var ajax = {
                     }
                 }
             };
+
+            if(method === 'POST') {
+                http.setRequestHeader('Content-Type', 'application/json');
+            }
 
             http.send(JSON.stringify(body));
         });
