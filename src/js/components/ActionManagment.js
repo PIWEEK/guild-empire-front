@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'rc-css-transition-group';
+import _ from 'lodash';
 
 import {ImmutableProps} from '../utils';
 import Isvg from 'react-inlinesvg';
@@ -23,28 +25,46 @@ class ActionManagment extends React.Component {
         let renderActions;
         let renderSelectedActions;
 
+        let actionNodes = [];
         if (activePlace) {
-            renderActions = (
-                <div className="column col-action">
-                {activePlace.get('actions').map((action) => {
-                    return <Action key={action.get('slug')} action={action} onSelect={this.selectAction.bind(this)} />
-                })}
-                {freeActions.map((action) => {
-                    return <Action key={action.get('slug')} action={action} onSelect={this.selectAction.bind(this)} />
-                })}
-                </div>
-            )
+            activePlace.get('actions').forEach((action) => {
+                actionNodes.push(
+                    <Action key={activePlace.get('slug') + action.get('slug')} action={action} onSelect={this.selectAction.bind(this)} />
+                )
+            });
+
+            freeActions.forEach((action) => {
+                actionNodes.push(
+                    <Action key={activePlace.get('slug') + action.get('slug')} action={action} onSelect={this.selectAction.bind(this)} />
+                )
+            });
         }
 
+        renderActions = (
+            <div className="column col-action">
+                <ReactCSSTransitionGroup transitionName="action" transitionLeave={false}>
+                    {actionNodes}
+                </ReactCSSTransitionGroup>
+             </div>
+        )
+
+        let activeActionNodes = [];
         if (selectedActions.size) {
-            renderSelectedActions = (
-                <div className="column col-action">
-                {selectedActions.map((action) => {
-                    return <Action key={action.get('slug')} action={action.get('action')} onSelect={this.removeAction.bind(this, action)} />
-                })}
-                </div>
-            )
+
+            selectedActions.forEach((action) => {
+                activeActionNodes.push(
+                    <Action key={action.get('slug')} action={action.get('action')} onSelect={this.removeAction.bind(this, action)} />
+                )
+            });
         }
+
+        renderSelectedActions = (
+            <div className="column col-action">
+                <ReactCSSTransitionGroup transitionName="action" transitionLeave={false}>
+                    {activeActionNodes}
+                 </ReactCSSTransitionGroup>
+            </div>
+        )
 
         return (
           <div className="action-managment-wrapper">

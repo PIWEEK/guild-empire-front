@@ -533,6 +533,7 @@ svg {
   padding: 1rem 0 0 1rem;
   width: 100%;
 }
+
 .column {
   display: flex;
   flex-basis: 250px;
@@ -541,6 +542,16 @@ svg {
   flex-grow: 0;
   &.col-action {
     flex-basis: 440px;
+  }
+  .action-enter {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+  }
+  .action-enter-active {
+      opacity: 1;
+  }
+  .example-leave {
+      opacity: 0;
   }
   .item-row {
     display: flex;

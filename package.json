@@ -10,6 +10,7 @@
     "js-csp": "^0.4.1",
     "lodash": "^3.10.0",
     "node-libs-browser": "^0.5.2",
+    "rc-css-transition-group": "^2.1.4",
     "react": "^0.13.3",
     "react-dnd": "^1.1.3",
     "react-dom": "^0.14.0-beta1",
