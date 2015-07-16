@@ -62,6 +62,7 @@ h2 {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
   width: 100%;
 }
 
@@ -703,6 +704,9 @@ $guild-pink: #e798c8;
 
 
 @mixin guildPersonalization($guild-color) {
+  .waiting {
+    background: $guild-color;
+  }
   .guild-container {
     border-color: $guild-color;
   }
@@ -959,4 +963,137 @@ $guild-pink: #e798c8;
   &.bad {
     background: #cb342b;
   }
+}
+
+.waiting {
+  align-items: center;
+  display: flex;
+  left: 0;
+  top: 0;
+  margin: 0;
+  height: 100vh;
+  padding: 0;
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+
+  @keyframes rotate-small {
+    0%{
+      transform: rotate(0deg)
+    }
+    50% {
+      transform: rotate(360deg)
+    }
+    100% {
+      transform: rotate(0deg)
+    }
+  }
+
+  @keyframes rotate-medium {
+    0%{
+      transform: rotate(0deg)
+    }
+    50% {
+      transform: rotate(-240deg)
+    }
+    100% {
+      transform: rotate(0deg)
+    }
+  }
+
+  @keyframes rotate-large {
+    0%{
+      transform: rotate(0deg)
+    }
+    50% {
+      transform: rotate(180deg)
+    }
+    100% {
+      transform: rotate(0deg)
+    }
+  }
+  .machine {
+    display: block;
+    margin: 0 auto;
+    width: 60vmin;
+    height: 300px;
+    fill: #fff;
+  }
+  .small-shadow, .medium-shadow, .large-shadow {
+    fill: rgba(0, 0, 0, .2);
+  }
+
+  .small {
+    transform-origin: 100.136px 225.345px;
+    animation-name: rotate-small;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+  }
+
+  .small-shadow {
+    transform-origin: 110.136px 235.345px;
+    animation-name: rotate-small;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+  }
+
+  .medium {
+    transform-origin: 254.675px 379.447px;
+    animation-name: rotate-medium;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+  }
+
+  .medium-shadow {
+    transform-origin: 264.675px 389.447px;
+    animation-name: rotate-medium;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+  }
+
+  .large {
+    transform-origin: 461.37px 173.694px;
+    animation-name: rotate-large;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+  }
+
+  .large-shadow {
+    transform-origin: 471.37px 183.694px;
+    animation-name: rotate-large;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 700px;
+    span {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  h1 {
+    font-family: 'Arbutus Slab', serif;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+  p {
+    font-family: 'Arbutus Slab', serif;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+
 }

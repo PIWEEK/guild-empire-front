@@ -1,7 +1,7 @@
 import React from 'react';
 import immstruct from 'immstruct';
 import Immutable from 'immutable';
-
+import Isvg from 'react-inlinesvg';
 import Guild from './Guild';
 import GameZone from './GameZone';
 import TurnResume from './TurnResume';
@@ -40,6 +40,7 @@ class App extends React.Component {
               {turnResume}
               {waiting}
            </div>
+
         );
     }
 }
