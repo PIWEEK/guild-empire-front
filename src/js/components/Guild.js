@@ -47,7 +47,7 @@ class Guild extends React.Component {
                   </div>
                   <div className="text">
                     <span className="ammount">{gold.get('value')}</span>
-                    <span className="income">(+ {gold.get('value')})</span>
+                    <span className="income">(+{gold.get('value')})</span>
                   </div>
                 </div>
 

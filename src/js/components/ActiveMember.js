@@ -47,7 +47,7 @@ class ActiveMember extends React.Component {
               <div className="data">
                 <div className="credentials">
                   <h1>{member.get('name')}</h1>
-                  <h2>{member.get('archetype')}</h2>
+                  <h2>The {member.get('archetype')}</h2>
                 </div>
                 <ul className="stats">
                   {member.get('skills').map(function(skill){

@@ -23,6 +23,8 @@ $col-item-deco-border: #b1a07f;
 $col-item-background: #d3bf8f;
 $col-item-fill: #000000;
 
+$stat-color: rgb(255, 130, 0);
+
 html {
   min-height: 100%;
   max-width: 100%;
@@ -185,7 +187,7 @@ svg {
       fill: $reputation-color;
     }
   }
-  &.influence svg {
+  &.influence {
     color: $influence-color;
     svg {
       fill: $influence-color;
@@ -419,17 +421,22 @@ svg {
         }
       }
     }
+    .ammount {
+      flex-basis: 30px;
+      font-weight: bold;
+    }
     .image {
       height: 18px;
       width: 18px;
       margin-right: 1rem;
       svg {
+        fill: $stat-color;
         height: 18px;
         width: 18px;
       }
     }
     .name {
-      margin-right: 1rem;
+      margin-right: .5rem;
       line-height: 1.2;
       width: 100%;
     }
@@ -553,6 +560,7 @@ svg {
   flex-direction: column;
   flex-shrink: 0;
   flex-grow: 0;
+  user-select: none;
   margin-right: 1rem;
   &:last-child {
     margin-right: 0;
@@ -581,6 +589,8 @@ svg {
 
 .place {
   align-items: center;
+  cursor: pointer;
+
   svg {
     fill: $col-item-fill;
   }
@@ -599,6 +609,9 @@ svg {
     display: flex;
     .icon {
       margin-right: .5rem;
+      span {
+        align-content: center;
+      }
     }
     svg {
       height: 15px;
@@ -626,14 +639,13 @@ svg {
     flex-grow: 0;
     flex-wrap: wrap;
     padding-right: .5rem;
-    padding-bottom: .5rem;
     flex-basis: 90px;
     .icon-container {
       display: flex;
       width: 100%;
     }
     svg {
-      fill: $skill-needed-icon;
+      fill: $stat-color;
       height: 20px;
       width: 20px;
     }
@@ -642,6 +654,26 @@ svg {
     display: flex;
     flex-direction: column;
     width: 100%;
+    .gold {
+      svg {
+        fill: $gold-color;
+      }
+    }
+    .reputation {
+      svg {
+        fill: $reputation-color;
+      }
+    }
+    .influence {
+      svg {
+        fill: $influence-color;
+      }
+    }
+    .infamy {
+      svg {
+        fill: $infamy-color;
+      }
+    }
   }
   .results-container {
     display: flex;
@@ -678,7 +710,6 @@ svg {
     color: $positive;
     display: flex;
     margin-right: .55rem;
-    padding-bottom: .5rem;
     .icon {
       margin-right: .1rem;
     }
@@ -1168,7 +1199,7 @@ $guild-pink: #e798c8;
   }
   .content {
     width: 100%;
-    padding: .5rem;
+    padding: .10rem .5rem;
   }
   .corner {
     background: url("../images/texture/border-place-corner.png");
@@ -1217,4 +1248,8 @@ $guild-pink: #e798c8;
     flex-grow: 0;
     flex-shrink: 0;
   }
+}
+
+.hide {
+  display: none !important;
 }

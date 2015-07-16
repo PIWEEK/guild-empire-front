@@ -29,9 +29,9 @@ class Action extends React.Component {
                         <div className="name">
                           {action.get('name')}
                         </div>
-                        <div className="turns">
+                        <div className="turns hide">
                           <div className="icon">
-                            <Isvg src="/images/stats/constitution.svg" />
+                            <Isvg src="/images/stats/time.svg" />
                           </div>
                           <div className="text">1 - 5</div>
                         </div>
@@ -42,15 +42,15 @@ class Action extends React.Component {
                           <p className="title">Skill Needed</p>
                           <div className="icon-container">
                             <div className="icon">
-                              <Isvg src="/images/stats/constitution.svg" />
+                              <Isvg src="/images/stats/gathering.svg" />
                               <Isvg className="skill skill-up"src="/images/arrow.svg" />
                             </div>
                             <div className="icon">
-                              <Isvg src="/images/stats/constitution.svg" />
+                              <Isvg src="/images/stats/martial-arts.svg" />
                               <Isvg className="skill skill-down"src="/images/arrow.svg" />
                             </div>
                             <div className="icon">
-                              <Isvg src="/images/stats/constitution.svg" />
+                              <Isvg src="/images/stats/dexterity.svg" />
                             </div>
                           </div>
                         </div>
@@ -58,26 +58,26 @@ class Action extends React.Component {
                           <p className="title">Expected Result</p>
                           <div className="results-container">
                             <div className="results-item">
-                              <div className="icon">
-                                <Isvg src="/images/stats/constitution.svg" />
+                              <div className="icon gold">
+                                <Isvg src="/images/currency/gold.svg" />
                               </div>
                               <p>+1000</p>
                             </div>
                             <div className="results-item">
-                              <div className="icon">
-                                <Isvg src="/images/stats/constitution.svg" />
+                              <div className="icon influence">
+                                <Isvg src="/images/currency/influence.svg" />
                               </div>
                               <p>+1000</p>
                             </div>
                             <div className="results-item negative">
-                              <div className="icon">
-                                <Isvg src="/images/stats/constitution.svg" />
+                              <div className="icon reputation">
+                                <Isvg src="/images/currency/reputation.svg" />
                               </div>
                               <p>+100</p>
                             </div>
                             <div className="results-item negative">
-                              <div className="icon">
-                                <Isvg src="/images/stats/constitution.svg" />
+                              <div className="icon infamy">
+                                <Isvg src="/images/currency/infamy.svg" />
                               </div>
                               <p>-100</p>
                             </div>
