@@ -3,7 +3,7 @@ const defaultData = {
     turn: null,
     activeMember: null,
     activePlace: null,
-    musicOn: true,
+    musicOn: false,
     actions: [],
     game: {}
 };
