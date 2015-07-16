@@ -548,10 +548,8 @@ svg {
       transition: opacity 1s ease-in;
   }
   .action-enter-active {
+      transition: opacity 1s ease-in;
       opacity: 1;
-  }
-  .example-leave {
-      opacity: 0;
   }
   .item-row {
     display: flex;

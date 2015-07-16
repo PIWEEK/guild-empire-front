@@ -6,13 +6,17 @@ let boardActions = {
         this.cursor.set('activeMember', member.deref());
     },
     selectPlace: function(place) {
-        let bg = Immutable.fromJS({
-            current: place.deref().get('slug'),
-            old: this.cursor.getIn(['bg', 'current'])
-        });
+        place = place.deref();
 
-        this.cursor.set('bg', bg);
-        this.cursor.set('activePlace', place.deref());
+        if (place.get('slug') !== this.cursor.getIn(['bg', 'current'])) {
+            let bg = Immutable.fromJS({
+                current: place.get('slug'),
+                old: this.cursor.getIn(['bg', 'current'])
+            });
+
+            this.cursor.set('bg', bg);
+            this.cursor.set('activePlace', place);
+        }
     },
     addAction: function(selectedAction) {
         let actions = this.cursor.get('actions');
