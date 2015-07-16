@@ -9,6 +9,9 @@ class ActiveMember extends React.Component {
     render() {
         let member = this.props.member;
 
+        console.log(">>>>>>>>>>> activeMember");
+        console.log(member.toJS());
+
         let conditionRender;
         if (member.get('conditions').size) {
             conditionRender = (
@@ -32,7 +35,7 @@ class ActiveMember extends React.Component {
         return (
           <div className="active-member">
             <div className="avatar">
-                <img src={`/images/characters/${member.get('slug')}.png`} />
+                <img src={`/images/characters/${member.get('avatar_slug')}.png`} />
             </div>
             <div className="content">
               <div className="data">

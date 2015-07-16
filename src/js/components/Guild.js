@@ -21,17 +21,22 @@ class Guild extends React.Component {
         let guild = this.props.guild;
         let guildName = this.props.guildName;
 
-        let gold = guild.deref().filter((item) => item.get('slug') === 'gold').get(0);
-        let wood = guild.deref().filter((item) => item.get('slug') === 'wood').get(0);
-        let influence = guild.deref().filter((item) => item.get('slug') === 'influence').get(0);
-        let reputation = guild.deref().filter((item) => item.get('slug') === 'reputation').get(0);
-        let infamy = guild.deref().filter((item) => item.get('slug') === 'infamy').get(0);
+        let assets = guild.get('assets');
+        let gold = assets.deref().filter((item) => item.get('slug') === 'gold').get(0);
+        let wood = assets.deref().filter((item) => item.get('slug') === 'wood').get(0);
+        let influence = assets.deref().filter((item) => item.get('slug') === 'influence').get(0);
+        let reputation = assets.deref().filter((item) => item.get('slug') === 'reputation').get(0);
+        let infamy = assets.deref().filter((item) => item.get('slug') === 'infamy').get(0);
+
+        console.log(">>>>> guild");
+        console.log(guild.toJS());
+        console.log(`/images/shields/guild-${guild.get('color')}.svg`);
 
         return (
           <div className="guild-container">
             <div className="guild-avatar">
               <div className="shield">
-                <Isvg src="/images/shields/guild-green.svg" />
+                <Isvg src={`/images/shields/guild-${guild.get('color')}.svg`} />
               </div>
             </div>
              <div className="guild-data">

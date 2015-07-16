@@ -7,7 +7,7 @@ import Isvg from 'react-inlinesvg';
 class Skill extends React.Component {
     render() {
         let skill = this.props.skill;
-        let icon = parseIcons.skill(skill.get('slug'));
+        let icon = skill.get('slug');
 
         icon = '/images/stats/' + icon + '.svg';
 

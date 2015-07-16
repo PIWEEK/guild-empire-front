@@ -97,6 +97,7 @@ function transformToAssocArray( prmstr ) {
     return params;
 }
 
+/*
 var skills = {
     'martial-arts': 'martial-art',
     'eloquence': 'eloquence',
@@ -115,3 +116,4 @@ var parseIcons = {
 };
 
 export {parseIcons};
+*/
