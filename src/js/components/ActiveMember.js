@@ -9,9 +9,6 @@ class ActiveMember extends React.Component {
     render() {
         let member = this.props.member;
 
-        console.log(">>>>>>>>>>> activeMember");
-        console.log(member.toJS());
-
         let conditionRender;
         if (member.get('conditions').size) {
             conditionRender = (

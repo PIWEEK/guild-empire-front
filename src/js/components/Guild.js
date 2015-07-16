@@ -28,10 +28,6 @@ class Guild extends React.Component {
         let reputation = assets.deref().filter((item) => item.get('slug') === 'reputation').get(0);
         let infamy = assets.deref().filter((item) => item.get('slug') === 'infamy').get(0);
 
-        console.log(">>>>> guild");
-        console.log(guild.toJS());
-        console.log(`/images/shields/guild-${guild.get('color')}.svg`);
-
         return (
           <div className="guild-container">
             <div className="guild-avatar">
