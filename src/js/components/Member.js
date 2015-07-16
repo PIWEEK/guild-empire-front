@@ -19,7 +19,7 @@ class Member extends React.Component {
               </div>
               <div className="actions">
                 <div className="image">
-                  <Isvg src="/images/stats/constitution.svg" />
+                  <Isvg src="/images/stats/time.svg" />
                 </div>
                 <div className="text">0/8</div>
               </div>
