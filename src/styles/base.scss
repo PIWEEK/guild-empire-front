@@ -305,11 +305,11 @@ svg {
       transform: scaleX(-1);
     }
     &.active {
-        animation: bg-on 1s;
+        animation: bg-on .25s;
         animation-fill-mode: forwards;
     }
     &.deactivate {
-        animation: bg-off 1s;
+        animation: bg-off .25s;
         animation-fill-mode: forwards;
     }
 }
@@ -545,10 +545,10 @@ svg {
   }
   .action-enter {
       opacity: 0;
-      transition: opacity 1s ease-in;
+      transition: opacity .25s ease-in;
   }
   .action-enter-active {
-      transition: opacity 1s ease-in;
+      transition: opacity .25s ease-in;
       opacity: 1;
   }
   .item-row {
