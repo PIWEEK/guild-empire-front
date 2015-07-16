@@ -14,6 +14,9 @@ class GameZone extends React.Component {
         const lastTurn = this.props.lastTurn;
 
         console.log(lastTurn.toJS());
+
+        return (
+         <div className="turn-resume">
           <div className="turn-resume">
             <div className="lightbox-overlay" onClick={this.close}></div>
             <div className="lightbox">
