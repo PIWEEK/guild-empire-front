@@ -1,5 +1,4 @@
 @import 'reset';
-@import 'turn-resume';
 @import 'waiting';
 
 $main-background: #34373c;
@@ -154,62 +153,64 @@ svg {
     margin-left: .5rem;
     margin-top: .2rem;
   }
-  .asset {
-    align-items: center;
-    display: flex;
-    margin-left: 1rem;
-    &.gold {
-      color: $gold-color;
-      svg {
-        fill: $gold-color;
-      }
-    }
-    &.reputation {
-      color: $reputation-color;
-      svg {
-        fill: $reputation-color;
-      }
-    }
-    &.influence svg {
-      color: $influence-color;
-      svg {
-        fill: $influence-color;
-      }
-    }
-    &.infamy {
-      color: $infamy-color;
-      svg {
-        fill: $infamy-color;
-      }
-    }
-    .image {
-      flex-basis: 35px;
-      margin-right: .5rem;
-      svg {
-        height: 23px;
-        width: 23px;
-      }
-    }
-    .left {
-      font-weight: bold;
-    }
-    .text {
-      flex-grow: 1;
-      flex-shrink: 0;
-      font-size: 13px;
-    }
-    .item {
-      display: flex;
-      justify-content: space-between;
-      &:last-child {
-        margin-top: .5rem;
-      }
-    }
-    .income {
-      padding-left: .5rem;
+}
+
+.asset {
+  align-items: center;
+  display: flex;
+  margin-left: 1rem;
+  &.gold {
+    color: $gold-color;
+    svg {
+      fill: $gold-color;
     }
   }
+  &.reputation {
+    color: $reputation-color;
+    svg {
+      fill: $reputation-color;
+    }
+  }
+  &.influence svg {
+    color: $influence-color;
+    svg {
+      fill: $influence-color;
+    }
+  }
+  &.infamy {
+    color: $infamy-color;
+    svg {
+      fill: $infamy-color;
+    }
+  }
+  .image {
+    flex-basis: 35px;
+    margin-right: .5rem;
+    svg {
+      height: 23px;
+      width: 23px;
+    }
+  }
+  .left {
+    font-weight: bold;
+  }
+  .text {
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    &:last-child {
+      margin-top: .5rem;
+    }
+  }
+  .income {
+    padding-left: .5rem;
+  }
 }
+
 
 .game-zone-container {
   align-items: flex-start;
@@ -711,6 +712,11 @@ $guild-pink: #e798c8;
     border-color: $guild-color;
     transition: all 1s ease;
   }
+  .lightbox {
+    .avatar {
+      background: $guild-color;
+    }
+  }
 }
 
 
@@ -743,4 +749,145 @@ $guild-pink: #e798c8;
 }
 .guild-pink {
   @include guildPersonalization($guild-pink);
+}
+
+
+.lightbox {
+  background: #000;
+  box-shadow: inset 0px 0px 109px 30px rgba(255, 255, 255, 0.20);
+  border-radius: 15px;
+  width: 900px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  .decor-row {
+    display: flex;
+    &.bottom {
+      position: absolute;
+      bottom: -15px;
+      width: 100%;
+      z-index: 100;
+    }
+    &.top {
+      position: absolute;
+      top: -15px;
+      width: 100%;
+      z-index: 100;
+    }
+  }
+  .corner {
+    background: url("../images/texture/corner-lightbox.png");
+    flex-basis: 23px;
+    height: 23px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    &.right-up {
+      transform: rotate(0deg) scaleX(-1);
+    }
+    &.left-bottom {
+      transform: rotate(0deg) scaleY(-1);
+    }
+    &.right-bottom {
+      transform: rotate(180deg);
+    }
+  }
+  .top-border {
+    background: url("../images/texture/border-lightbox.png");
+    background-repeat: repeat-x;
+    height: 23px;
+    width: 100%;
+  }
+  .bottom-border {
+    background: url("../images/texture/border-lightbox.png");
+    background-repeat: repeat-x;
+    transform: rotate(180deg);
+    height: 23px;
+    width: 100%;
+  }
+  .left-border {
+    background: url("../images/texture/border-lightbox-vertical.png");
+    width: 17px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  .right-border {
+    background: url("../images/texture/border-lightbox-vertical.png");
+    transform: scaleX(-1);
+    background-position: right top;
+    width: 17px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  .lightbox-content {
+    padding: .5rem;
+    overflow: auto;
+    max-height: 80vh;
+    width: 100%;
+  }
+  .lightbox-title-container {
+    align-items: center;
+    background: url("../images/texture/lightbox-title.png");
+    justify-content: center;
+    display: flex;
+    height: 46px;
+    width: 299px;
+    position: absolute;
+    left: 50%;
+    transform:  translateX(-50%);
+    top: -37px;
+    z-index: 1001;
+  }
+  .image{
+    border-radius: 50px;
+    border: solid 2px white;
+    box-shadow: inset 0px 0px 0px 10px rgba(0,0,0,0.25);
+    height: 50px;
+    overflow: hidden;
+    margin-right: .5rem;
+    flex-basis: 50px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 50px;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .item {
+    display: flex;
+    .row {
+      display: flex;
+      margin: .5rem 0;
+    }
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    .name {
+      font-family: 'Arbutus Slab', serif;
+      font-weight: bold;
+      padding-bottom: .5rem;
+      padding-top: 2px;
+      width: 100%;
+    }
+    .assets {
+      display: flex;
+      width: 100%;
+    }
+    .asset:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.condition {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  &.bad {
+    fill: red;
+  }
 }
