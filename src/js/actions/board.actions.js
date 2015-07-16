@@ -6,6 +6,12 @@ let boardActions = {
         this.cursor.set('activeMember', member.deref());
     },
     selectPlace: function(place) {
+        let bg = Immutable.fromJS({
+            current: place.deref().get('slug'),
+            old: this.cursor.getIn(['bg', 'current'])
+        });
+
+        this.cursor.set('bg', bg);
         this.cursor.set('activePlace', place.deref());
     },
     addAction: function(selectedAction) {
@@ -31,7 +37,7 @@ let boardActions = {
         let actions = this.cursor.get('actions').deref();
         let slug = action.get('slug');
 
-        actions = actions.filter((action) => action.get('slug') != slug);
+        actions = actions.filter((action) => action.get('slug') !== slug);
 
         this.cursor.set('actions', actions);
     }

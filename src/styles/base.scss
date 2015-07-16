@@ -243,8 +243,6 @@ svg {
     padding: 1rem;
   }
   .decor-managment-managment {
-    background: url("../images/places/default.png");
-    background-position: center left;
     position: relative;
     width: 100%;
     .degrade {
@@ -254,10 +252,13 @@ svg {
       top: 0;
       height: 100%;
       width: 132px;
-    }
-    &.reverse {
-      background-position: center left;
-      transform: scaleX(-1);
+      z-index: 50;
+      &.reverse {
+          background-position: center left;
+          transform: scaleX(-1);
+          left: auto;
+          right: 0;
+      }
     }
   }
   .action-managment-wrapper {
@@ -280,43 +281,62 @@ svg {
   }
 }
 
+@keyframes bg-on {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes bg-off {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.place-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    opacity: 0;
+    &.reverse {
+      background-position: center left;
+      transform: scaleX(-1);
+    }
+    &.active {
+        animation: bg-on 1s;
+        animation-fill-mode: forwards;
+    }
+    &.deactivate {
+        animation: bg-off 1s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.default {
+    background: url("../images/places/default.png");
+}
 .forest {
-  .decor-managment-managment {
     background: url("../images/places/forest.png");
-  }
 }
 .mine {
-  .decor-managment-managment {
     background: url("../images/places/mine.png");
-  }
 }
 .market {
-  .decor-managment-managment {
     background: url("../images/places/market.png");
-  }
 }
 .port {
-  .decor-managment-managment {
     background: url("../images/places/port.png");
-  }
 }
 .tavern {
-  .decor-managment-managment {
     background: url("../images/places/tavern.png");
-  }
 }
 .church {
-  .decor-managment-managment {
     background: url("../images/places/church.png");
-  }
 }
 .academy {
-  .decor-managment-managment {
     background: url("../images/places/academy.png");
-  }
 }
-
-
 
 
 .active-member {

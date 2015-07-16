@@ -6,7 +6,11 @@ const defaultData = {
     musicOn: false,
     actions: [],
     game: {},
-    waiting: false
+    waiting: false,
+    bg: {
+        current: 'default',
+        old: null
+    }
 };
 
 export default defaultData;
