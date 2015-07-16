@@ -14,8 +14,9 @@ import gameEngine from '../gameEngine';
 class App extends React.Component {
     render() {
         let turnResume = '';
-         if (this.props.cursor.get('showResume')) {
-            turnResume = <TurnResume />;
+
+        if (this.props.cursor.get('showResume')) {
+             turnResume = <TurnResume lastTurn={this.props.cursor.getIn(['turn', 'last_turn'])} />;
         }
 
         let waiting = '';
