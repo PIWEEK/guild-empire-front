@@ -20,7 +20,12 @@ class ActionManagment extends React.Component {
         let places = this.props.places;
         let freeActions = this.props.freeActions;
         let activePlace = this.props.activePlace;
+        let activeMember = this.props.activeMember;
         let selectedActions = this.props.selectedActions;
+
+        selectedActions = selectedActions.deref().filter((action) => {
+            return action.getIn(['character', 'slug']) === activeMember.get('slug');
+        });
 
         let renderActions;
         let renderSelectedActions;
@@ -50,10 +55,12 @@ class ActionManagment extends React.Component {
 
         let activeActionNodes = [];
         if (selectedActions.size) {
-
             selectedActions.forEach((action) => {
                 activeActionNodes.push(
-                    <Action key={action.get('slug')} action={action.get('action')} onSelect={this.removeAction.bind(this, action)} />
+                    <Action
+                         key={activeMember.get('slug') + action.get('slug')}
+                         action={action.get('action')}
+                         onSelect={this.removeAction.bind(this, action)} />
                 )
             });
         }

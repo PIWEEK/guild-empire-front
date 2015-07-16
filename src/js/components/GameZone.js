@@ -56,8 +56,8 @@ class GameZone extends React.Component {
           <div className="game-zone-container">
             <div className="member-managment-wrapper">
               <div className="decor-managment-managment">
-                {leftBgs.map((classes) => {
-                    return <div className={classes} />
+                {leftBgs.map((classes, key) => {
+                    return <div key={key} className={classes} />
                 })}
                 <div className="reverse degrade"></div>
               </div>
@@ -66,8 +66,8 @@ class GameZone extends React.Component {
                 <MemberList members={this.props.turn.getIn(['guild', 'members'])}/>
               </div>
               <div className="decor-managment-managment ">
-                {rightBgs.map((classes) => {
-                    return <div className={classes} />
+                {rightBgs.map((classes, key) => {
+                    return <div key={key} className={classes} />
                 })}
                 <div className="degrade"></div>
               </div>
@@ -76,6 +76,7 @@ class GameZone extends React.Component {
                 selectedActions={selectedActions}
                 places={turn.get('places')}
                 activePlace={activePlace}
+                activeMember={activeMember}
                 freeActions={turn.get('free_actions')} />
           </div>
         );
