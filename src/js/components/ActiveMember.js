@@ -1,8 +1,9 @@
 import React from 'react';
 
-import {ImmutableProps} from '../utils';
+import {ImmutableProps, parseCondition} from '../utils';
 import Isvg from 'react-inlinesvg';
 import Skill from './Skill';
+import classNames from 'classnames';
 
 @ImmutableProps
 class ActiveMember extends React.Component {
@@ -16,11 +17,19 @@ class ActiveMember extends React.Component {
                 <h1>Conditions</h1>
                 <ul>
                 {member.get('conditions').map(function(condition){
-                  return (<li key={condition.get('slug')} >
-                    <div className="image">
-                      <div className="tooltip">
-                        {condition.get('name')}
-                      </div>
+                    let conditionInfo = parseCondition(condition.get('slug'));
+
+                    let classes = {
+                        'condition-item': true
+                    };
+
+                    classes[conditionInfo[0]] = true;
+
+                    let classObj = classNames(classes);
+
+                    return (<li key={condition.get('slug')} >
+                    <div className={classObj}>
+                       <Isvg src={`/images/conditions/${conditionInfo[1]}.svg`} />
                     </div>
                   </li>)
                 })}

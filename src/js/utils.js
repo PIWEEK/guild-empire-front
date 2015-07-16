@@ -63,6 +63,7 @@ var ajax = {
 
             if(method === 'POST') {
                 http.setRequestHeader('Content-Type', 'application/json');
+                http.setRequestHeader('Accept', 'application/json, text/plain, */*');
             }
 
             http.send(JSON.stringify(body));
@@ -102,6 +103,14 @@ export function getSearchParameter(param) {
 
     return params[param];
 }
+
+var conditions = {
+    'governor': ['bad', 'broken-bone']
+};
+
+export function parseCondition(slug) {
+    return conditions[slug];
+};
 
 /*
 var skills = {
