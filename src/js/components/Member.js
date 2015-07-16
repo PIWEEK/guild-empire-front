@@ -11,6 +11,7 @@ class Member extends React.Component {
     }
     render() {
         let member = this.props.member;
+        let actions = this.props.actions;
 
         return (
             <div onClick={this.selectMember.bind(this)} className="member">
@@ -21,7 +22,7 @@ class Member extends React.Component {
                 <div className="image">
                   <Isvg src="/images/stats/time.svg" />
                 </div>
-                <div className="text">0/8</div>
+                <div className="text">{actions}/8</div>
               </div>
             </div>
         );

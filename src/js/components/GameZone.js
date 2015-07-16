@@ -63,7 +63,10 @@ class GameZone extends React.Component {
               </div>
               <div className="member-managment-container">
                 {activeMemberTemplate}
-                <MemberList members={this.props.turn.getIn(['guild', 'members'])}/>
+                <MemberList
+                    members={this.props.turn.getIn(['guild', 'members'])}
+                    selectedActions={selectedActions}
+                />
               </div>
               <div className="decor-managment-managment ">
                 {rightBgs.map((classes, key) => {
