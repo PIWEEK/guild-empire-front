@@ -7,6 +7,11 @@ import Music from './Music';
 
 @ImmutableProps
 class Guild extends React.Component {
+    endTurn(e) {
+        e.preventDefault();
+
+        commonActions.endTurn();
+    }
     showResume(e) {
         e.preventDefault();
 
@@ -80,7 +85,7 @@ class Guild extends React.Component {
              </div>
              <div className="guild-interactions">
                <div className="btn-blue" onClick={this.showResume}>Show Turn Resume</div>
-               <div className="btn-blue">End Turn</div>
+               <div className="btn-blue" onClick={this.endTurn}>End Turn</div>
              </div>
 
              <Music musicOn={this.props.musicOn} />

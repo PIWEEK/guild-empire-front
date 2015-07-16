@@ -5,6 +5,7 @@ import Immutable from 'immutable';
 import Guild from './Guild';
 import GameZone from './GameZone';
 import TurnResume from './TurnResume';
+import Waiting from './Waiting';
 import {ImmutableProps} from '../utils';
 import * as data from '../data';
 import gameEngine from '../gameEngine';
@@ -13,22 +14,27 @@ import gameEngine from '../gameEngine';
 class App extends React.Component {
     render() {
         let turnResume = '';
-
-        if (this.props.cursor.get('showResume')) {
+         if (this.props.cursor.get('showResume')) {
             turnResume = <TurnResume />;
+        }
+
+        let waiting = '';
+        if (this.props.cursor.get('waiting')) {
+            waiting = <Waiting />;
         }
 
         let guildName = this.props.cursor.getIn(['gameInfo', 'guild']);
 
         return (
            <div className="main-container guild-green">
-                <Guild guildName={guildName} guild={this.props.cursor.getIn(['turn', 'guild', 'assets'])} musicOn={this.props.cursor.get('musicOn')} />
+              <Guild guildName={guildName} guild={this.props.cursor.getIn(['turn', 'guild', 'assets'])} musicOn={this.props.cursor.get('musicOn')} />
               <GameZone
                   selectedActions={this.props.cursor.get('actions')}
                   activeMember={this.props.cursor.get('activeMember')}
                   activePlace={this.props.cursor.get('activePlace')}
                   turn={this.props.cursor.get('turn')} />
               {turnResume}
+              {waiting}
            </div>
         );
     }

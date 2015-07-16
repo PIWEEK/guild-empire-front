@@ -5,7 +5,8 @@ const defaultData = {
     activePlace: null,
     musicOn: false,
     actions: [],
-    game: {}
+    game: {},
+    waiting: false
 };
 
 export default defaultData;

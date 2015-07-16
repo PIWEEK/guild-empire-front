@@ -42,15 +42,15 @@ function jsonToUrl(obj) {
 }
 
 var ajax = {
-    request: function(method, url, params={}) {
+    request: function(method='GET', url, data = {}) {
         return new Promise(function(resolve, reject) {
-            var strParams = jsonToUrl(params);
-            var http = new XMLHttpRequest();
+            let http = new XMLHttpRequest();
+
+            http.open(method, url, true);
 
             http.onreadystatechange = function() {
                 if(http.readyState === 4) {
                     let response = JSON.parse(http.responseText);
-
                     if (http.status === 200) {
                         resolve(response);
                     } else {
@@ -59,12 +59,19 @@ var ajax = {
                 }
             };
 
-            http.open(method, url + '?' + strParams, true);
-            http.send(null);
+            http.send(JSON.stringify(data));
         });
     },
     get: function(url, params={}) {
-        return ajax.request('GET', url, params);
+        let query = [];
+
+        _.forIn(params, (param, key) => {
+            query.push(encodeURIComponent(key) + '=' + encodeURIComponent(param));
+        });
+
+        url = url + (query.length ? '?' + query.join('&') : '');
+
+        return ajax.request('GET', url);
     },
     post: function(url, params={}) {
         return ajax.request('POST', url, params);

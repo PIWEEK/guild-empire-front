@@ -10,3 +10,7 @@ export function getTurn(params) {
 export function createGame() {
     return ajax.get(root + 'create_game');
 }
+
+export function endTurn(params) {
+    return ajax.post(root + 'turn', params);
+}
