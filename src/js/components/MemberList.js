@@ -10,7 +10,7 @@ class MemberList extends React.Component {
         return (
           <div className="member-list">
             {this.props.members.map(function(member) {
-                return <Member key={member.get('slug')} member={member} />
+                return <Member member={member} />
             })}
           </div>
         );
