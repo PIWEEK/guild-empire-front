@@ -37,7 +37,7 @@ let boardActions = {
         let actions = this.cursor.get('actions').deref();
         let slug = action.get('slug');
 
-        actions = actions.filter((action) => action.get('slug') !== slug);
+        actions = actions.filter((a) => a.get('slug') !== slug);
 
         this.cursor.set('actions', actions);
     }

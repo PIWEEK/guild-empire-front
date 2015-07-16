@@ -35,14 +35,16 @@ export function Action(target) {
     return target;
 }
 
+/*
 function jsonToUrl(obj) {
     return Object.keys(obj).map(function(key){
         return encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]);
     }).join('&');
 }
+*/
 
 var ajax = {
-    request: function(method='GET', url, data = {}) {
+    request: function(method='GET', url, body = {}) {
         return new Promise(function(resolve, reject) {
             let http = new XMLHttpRequest();
 
@@ -59,7 +61,7 @@ var ajax = {
                 }
             };
 
-            http.send(JSON.stringify(data));
+            http.send(JSON.stringify(body));
         });
     },
     get: function(url, params={}) {
@@ -80,21 +82,21 @@ var ajax = {
 
 export {ajax};
 
-export function getSearchParameter(param) {
-    var prmstr = window.location.search.substr(1);
-    var params = prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
-
-    return params[param];
-}
-
 function transformToAssocArray( prmstr ) {
     var params = {};
-    var prmarr = prmstr.split("&");
+    var prmarr = prmstr.split('&');
     for ( var i = 0; i < prmarr.length; i++) {
-        var tmparr = prmarr[i].split("=");
+        var tmparr = prmarr[i].split('=');
         params[tmparr[0]] = tmparr[1];
     }
     return params;
+}
+
+export function getSearchParameter(param) {
+    var prmstr = window.location.search.substr(1);
+    var params = prmstr !== null && prmstr !== '' ? transformToAssocArray(prmstr) : {};
+
+    return params[param];
 }
 
 /*

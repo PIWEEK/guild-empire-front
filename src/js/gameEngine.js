@@ -4,7 +4,7 @@ import * as utils from './utils';
 import * as data from './data';
 import commonActions from './actions/common.actions';
 
-var id = {};
+//var id = {};
 
 let gameEngine = {
     create: function() {
