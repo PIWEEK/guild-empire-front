@@ -18,14 +18,23 @@ class Event extends React.Component {
             conditionIcon = parseCondition(conditionGained);
             if (conditionIcon) {
                 conditionIcon = conditionIcon[1];
+                conditionAfterMath = conditionIcon[0];
             }
-            conditionAfterMath = 'good';
         } else if (conditionLost) {
             conditionIcon = parseCondition(conditionLost);
             if (conditionIcon) {
                 conditionIcon = conditionIcon[1];
+                conditionAfterMath = conditionIcon[0];
             }
-            conditionAfterMath = 'bad';
+        }
+
+        let condition;
+        if (conditionIcon) {
+            condition = (
+                    <div className={`condition-item ${conditionAfterMath}`}>
+                        <Isvg src={`/images/conditions/${conditionIcon}.svg`} />
+                    </div>
+            );
         }
 
         return (
@@ -33,9 +42,7 @@ class Event extends React.Component {
                       <div className="sub-decor"></div>
                          <div className="image-cont">
 
-                         <div className={`condition-item ${conditionAfterMath}`}>
-                            <Isvg src={`/images/conditions/${conditionIcon}.svg`} />
-                         </div>
+                         {condition}
 
                       </div>
                       <div className="text">

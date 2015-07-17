@@ -110,7 +110,7 @@ var conditions = {
     'false_confidence': ['perm_bad', 'false_confidence'],
     'master_of_crafting': ['perm_good', 'master_of_crafting'],
     'iocane_immunity': ['perm_good', 'iocane_immunity'],
-    'happy_drunk': ['good', 'happy_drunk'],
+    'happy-drunk': ['good', 'happy_drunk'],
     'winner': ['good', 'winner'],
     'loser': ['bad', 'loser'],
 };
