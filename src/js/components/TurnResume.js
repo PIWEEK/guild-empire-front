@@ -5,14 +5,12 @@ import commonActions from '../actions/common.actions';
 import LastTurnMember from './LastTurnMember';
 
 @ImmutableProps
-class GameZone extends React.Component {
+class TurnResume extends React.Component {
     close() {
         commonActions.closeResume();
     }
     render() {
         const lastTurn = this.props.lastTurn;
-
-        console.log(lastTurn.toJS());
 
         return (
           <div className="turn-resume">
@@ -63,4 +61,4 @@ class GameZone extends React.Component {
     }
 }
 
-export default GameZone;
+export default TurnResume;

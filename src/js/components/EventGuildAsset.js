@@ -6,18 +6,18 @@ import Isvg from 'react-inlinesvg';
 @ImmutableProps
 class EventGuildAsset extends React.Component {
     render() {
-        const eventGuildAsset = this.props.eventGuildAsset;
-
-        console.log("eventGuildAsset >>>>>");
-        console.log(eventGuildAsset);
+        const currency = this.props.currency;
+        const value = this.props.value;
+        let sign = '';
+        if (value>0) sign='+';
 
         return (
           <div className="asset gold">
             <div className="image">
-                <Isvg src={`/images/currency/${eventGuildAsset}.svg`} />
+                <Isvg src={`/images/currency/${currency}.svg`} />
             </div>
             <div className="text">
-              <span className="ammount">+100</span>
+                <span className="ammount">{sign}{value}</span>
             </div>
           </div>
         );

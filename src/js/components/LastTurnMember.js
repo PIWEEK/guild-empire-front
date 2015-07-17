@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Immutable from 'immutable';
 import {ImmutableProps} from '../utils';
 import Event from './Event';
 import EventGuildAsset from './EventGuildAsset';
@@ -9,10 +10,14 @@ class LastTurnMember extends React.Component {
     render() {
         const lastTurnMember = this.props.lastTurnMember;
         const character = lastTurnMember.get('character');
-        const guild_assets = lastTurnMember.get('guild_assets');
+        const guildAssets = lastTurnMember.get('guild_assets');
         const events = lastTurnMember.get('events');
 
-        console.log(lastTurnMember.toJS());
+        let assets = [];
+
+        guildAssets.deref().forEach(function(value,currency) {
+            assets.push(<EventGuildAsset currency={currency} value={value} />);
+        });
 
         return (
                 <div className="character-event">
@@ -25,11 +30,7 @@ class LastTurnMember extends React.Component {
                           <div className="name">{character.get('name')} <strong>, The {character.get('archetype')}</strong></div>
 
                           <div className="assets">
-
-                              {guild_assets.map(function(e) {
-                                  return <EventGuildAsset eventGuildAsset={e} />
-                              })}
-
+                             {assets}
                           </div>
                         </div>
                       </div>

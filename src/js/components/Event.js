@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ImmutableProps} from '../utils';
+import {ImmutableProps, parseCondition} from '../utils';
 import Isvg from 'react-inlinesvg';
 
 @ImmutableProps
@@ -15,10 +15,16 @@ class Event extends React.Component {
         let conditionIcon = '';
 
         if (conditionGained) {
-            conditionIcon = conditionGained;
+            conditionIcon = parseCondition(conditionGained);
+            if (conditionIcon) {
+                conditionIcon = conditionIcon[1];
+            }
             conditionAfterMath = 'good';
         } else if (conditionLost) {
-            conditionIcon = conditionLost;
+            conditionIcon = parseCondition(conditionLost);
+            if (conditionIcon) {
+                conditionIcon = conditionIcon[1];
+            }
             conditionAfterMath = 'bad';
         }
 
