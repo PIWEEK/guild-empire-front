@@ -41,18 +41,18 @@ class App extends React.Component {
         let turn;
         if (this.props.cursor.get('turn')) {
             turn = (
-              <div>
-              <Guild
-                  guildName={guildName}
-                  guild={this.props.cursor.getIn(['turn', 'guild'])}
-                  musicOn={this.props.cursor.get('musicOn')} />
-              <GameZone
-                  bg={this.props.cursor.get('bg')}
-                  selectedActions={this.props.cursor.get('actions')}
-                  activeMember={this.props.cursor.get('activeMember')}
-                  activePlace={this.props.cursor.get('activePlace')}
-                  turn={this.props.cursor.get('turn')} />
-              {turnResume}
+              <div className="game-area">
+                <Guild
+                    guildName={guildName}
+                    guild={this.props.cursor.getIn(['turn', 'guild'])}
+                    musicOn={this.props.cursor.get('musicOn')} />
+                <GameZone
+                    bg={this.props.cursor.get('bg')}
+                    selectedActions={this.props.cursor.get('actions')}
+                    activeMember={this.props.cursor.get('activeMember')}
+                    activePlace={this.props.cursor.get('activePlace')}
+                    turn={this.props.cursor.get('turn')} />
+                {turnResume}
               </div>
             );
         }

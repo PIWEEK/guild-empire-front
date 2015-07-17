@@ -68,6 +68,12 @@ h2 {
   width: 100%;
 }
 
+.game-area {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
 svg {
   fill: white;
   flex-basis: 40px;
