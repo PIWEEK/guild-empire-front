@@ -28,7 +28,7 @@ let commonActions = {
                     resolve(data);
                 } else {
                     await sleep(1000);
-                    turn = await this.nextTurn();
+                    let turn = await this.nextTurn();
                     resolve(turn);
                 }
             }.bind(this));
