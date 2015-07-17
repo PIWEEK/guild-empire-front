@@ -24,6 +24,12 @@ let boardActions = {
         let place = this.cursor.get('activePlace');
         let character = this.cursor.get('activeMember');
 
+        let selectedActions = actions.deref().filter((action) => {
+            return action.getIn(['character', 'slug']) === character.get('slug');
+        });
+
+        if (selectedActions.size === 8) return;
+
         let action = Immutable.Map();
 
         let slug = actions.size;
