@@ -110,6 +110,15 @@ export function sleep(ms = 0) {
   return new Promise(r => setTimeout(r, ms));
 }
 
+export function guildColor(guild) {
+    let guilds = {
+        medici: 'guild-green',
+        malatesta: 'guild-red'
+    };
+
+    return guilds[guild];
+}
+
 /*
 var skills = {
     'martial-arts': 'martial-art',

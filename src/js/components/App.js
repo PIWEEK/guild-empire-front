@@ -6,9 +6,10 @@ import Guild from './Guild';
 import GameZone from './GameZone';
 import TurnResume from './TurnResume';
 import Waiting from './Waiting';
-import {ImmutableProps} from '../utils';
+import {ImmutableProps, guildColor} from '../utils';
 import * as data from '../data';
 import gameEngine from '../gameEngine';
+import classNames from 'classnames';
 
 @ImmutableProps
 class App extends React.Component {
@@ -26,8 +27,18 @@ class App extends React.Component {
 
         let guildName = this.props.cursor.getIn(['gameInfo', 'guild']);
 
+        let color = guildColor(guildName);
+
+        let guildClasses = {
+            'main-container': true
+        };
+
+        guildClasses[color] = true;
+
+        guildClasses = classNames(guildClasses);
+
         return (
-           <div className="main-container guild-green">
+           <div className={guildClasses}>
               <Guild
                   guildName={guildName}
                   guild={this.props.cursor.getIn(['turn', 'guild'])}
