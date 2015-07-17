@@ -13,7 +13,7 @@ class Action extends React.Component {
         let action = this.props.action;
 
         let skillsNeeded;
-        if (action.get('skills_needed')) {
+        if (action.get('skills_needed').size) {
             let skills = [];
 
             action.get('skills_needed').forEach((skill) => {
