@@ -6,11 +6,11 @@ export function getTurn(params) {
     return ajax.get(root + 'turn', params);
 }
 
-
 export function createGame() {
     return ajax.get(root + 'create_game');
 }
 
-export function endTurn(params) {
-    return ajax.post(root + 'turn', params);
+export function endTurn(gameInfo, params) {
+    let url = root + 'turn?game=' + gameInfo.get('game') + '&guild=' + gameInfo.get('guild');
+    return ajax.post(url, params);
 }

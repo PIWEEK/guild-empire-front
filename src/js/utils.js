@@ -35,14 +35,6 @@ export function Action(target) {
     return target;
 }
 
-/*
-function jsonToUrl(obj) {
-    return Object.keys(obj).map(function(key){
-        return encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]);
-    }).join('&');
-}
-*/
-
 var ajax = {
     request: function(method='GET', url, body = {}) {
         return new Promise(function(resolve, reject) {
@@ -52,19 +44,21 @@ var ajax = {
 
             http.onreadystatechange = function() {
                 if(http.readyState === 4) {
-                    let response = JSON.parse(http.responseText);
-                    if (http.status === 200) {
+                    let response;
+
+                    if(method === 'GET') {
+                        response = JSON.parse(http.responseText);
+                    } else {
+                        response = http.responseText;
+                    }
+
+                    if (http.status >= 200) {
                         resolve(response);
                     } else {
                         reject(response);
                     }
                 }
             };
-
-            if(method === 'POST') {
-                http.setRequestHeader('Content-Type', 'application/json');
-                http.setRequestHeader('Accept', 'application/json, text/plain, */*');
-            }
 
             http.send(JSON.stringify(body));
         });
@@ -111,6 +105,10 @@ var conditions = {
 export function parseCondition(slug) {
     return conditions[slug];
 };
+
+export function sleep(ms = 0) {
+  return new Promise(r => setTimeout(r, ms));
+}
 
 /*
 var skills = {

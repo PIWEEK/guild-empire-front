@@ -5,7 +5,7 @@ const defaultData = {
     activePlace: null,
     musicOn: false,
     actions: [],
-    game: {},
+    gameInfo: {},
     waiting: false,
     bg: {
         current: 'default',
