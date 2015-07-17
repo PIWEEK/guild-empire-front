@@ -70,6 +70,7 @@ let commonActions = {
                 cursor.set('turn', turn);
 
                 this.cursor.set('waiting', false);
+                this.cursor.set('showResume', true);
             });
     },
     musicToggle: function() {
