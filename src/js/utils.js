@@ -99,7 +99,17 @@ export function getSearchParameter(param) {
 }
 
 var conditions = {
-    'governor': ['bad', 'broken-bone']
+    'bishop': ['status', 'bishop'],
+    'marshal': ['status', 'marshal'],
+    'master_coin': ['status', 'master_coin'],
+    'alcoholic': ['perm_bad', 'alcoholic'],
+    'pummeled': ['bad', 'pummeled'],
+    'guild_master': ['status', 'guild_master'],
+    'brainiac': ['perm_good', 'brainiac'],
+    'religion_fanatic': ['good', 'religion_fanatic'],
+    'false_confidence': ['perm_bad', 'false_confidence'],
+    'master_of_crafting': ['perm_good', 'master_of_crafting'],
+    'iocane_immunity': ['perm_good', 'iocane_immunity'],
 };
 
 export function parseCondition(slug) {

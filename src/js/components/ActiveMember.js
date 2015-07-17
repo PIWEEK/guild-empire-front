@@ -35,6 +35,7 @@ class ActiveMember extends React.Component {
                     return (<li key={condition.get('slug')} >
                     <div className={classObj}>
                        <Isvg src={`/images/conditions/${conditionInfo[1]}.svg`} />
+                       <div className="tooltip">{condition.get('description')}</div>
                     </div>
                   </li>)
                 })}
@@ -42,6 +43,8 @@ class ActiveMember extends React.Component {
               </div>
             )
         }
+
+
 
         return (
           <div className="active-member">
