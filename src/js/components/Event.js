@@ -2,20 +2,35 @@ import React from 'react';
 
 import {ImmutableProps} from '../utils';
 import Isvg from 'react-inlinesvg';
-import boardActions from '../actions/board.actions';
 
 @ImmutableProps
 class Event extends React.Component {
     render() {
         const event = this.props.event;
 
+        const conditionGained = event.get('condition_gained');
+        const conditionLost = event.get('condition_lost');
+
+        let conditionAfterMath = '';
+        let conditionIcon = '';
+
+        if (conditionGained) {
+            conditionIcon = conditionGained;
+            conditionAfterMath = 'good';
+        } else if (conditionLost) {
+            conditionIcon = conditionLost;
+            conditionAfterMath = 'bad';
+        }
+
         return (
                   <div className="row sub">
                       <div className="sub-decor"></div>
-                      <div className="image-cont">
-                         <div className="condition-item bad">
-                            <Isvg src="/images/conditions/broken-bone.svg" />
-                          </div>
+                         <div className="image-cont">
+
+                         <div className={`condition-item ${conditionAfterMath}`}>
+                            <Isvg src={`/images/conditions/${conditionIcon}.svg`} />
+                         </div>
+
                       </div>
                       <div className="text">
                           {event.get('message')}

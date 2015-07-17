@@ -104,7 +104,7 @@ var conditions = {
 
 export function parseCondition(slug) {
     return conditions[slug];
-};
+}
 
 export function sleep(ms = 0) {
   return new Promise(r => setTimeout(r, ms));

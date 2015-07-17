@@ -80,6 +80,7 @@ svg {
   margin: 1px;
   font-size: 18px;
   text-align: center;
+  cursor: pointer;
 }
 
 .btn-blue {
@@ -1002,6 +1003,9 @@ $guild-pink: #e798c8;
   }
   &.bad {
     background: #cb342b;
+  }
+  &.good {
+    background: #2bcb34;
   }
 }
 

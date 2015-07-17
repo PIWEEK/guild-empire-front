@@ -1,14 +1,16 @@
 import React from 'react';
 
 import {ImmutableProps} from '../utils';
-import Isvg from 'react-inlinesvg';
-import boardActions from '../actions/board.actions';
 import Event from './Event';
+import EventGuildAsset from './EventGuildAsset';
 
 @ImmutableProps
 class LastTurnMember extends React.Component {
     render() {
         const lastTurnMember = this.props.lastTurnMember;
+        const character = lastTurnMember.get('character');
+        const guild_assets = lastTurnMember.get('guild_assets');
+        const events = lastTurnMember.get('events');
 
         console.log(lastTurnMember.toJS());
 
@@ -17,52 +19,23 @@ class LastTurnMember extends React.Component {
                     <div className="item">
                       <div className="row">
                         <div className="avatar">
-                          <img src="/images/characters/priest.png" />
+                            <img src={`/images/characters/${character.get('avatar_slug')}.png`} />
                         </div>
                         <div className="text">
-                          <div className="name">Lorenzo <strong>, The assasin</strong></div>
+                          <div className="name">{character.get('name')} <strong>, The {character.get('archetype')}</strong></div>
+
                           <div className="assets">
-                              <div className="asset gold">
-                                <div className="image">
-                                  <Isvg src="/images/currency/gold.svg" />
-                                </div>
-                                <div className="text">
-                                  <span className="ammount">+100</span>
-                                </div>
-                              </div>
 
-                              <div className="asset influence">
-                                <div className="image">
-                                  <Isvg src="/images/currency/influence.svg" />
-                                </div>
-                                <div className="text">
-                                  <span className="ammount">+100</span>
-                                </div>
-                              </div>
+                              {guild_assets.map(function(e) {
+                                  return <EventGuildAsset eventGuildAsset={e} />
+                              })}
 
-                              <div className="asset reputation">
-                                <div className="image">
-                                  <Isvg src="/images/currency/reputation.svg" />
-                                </div>
-                                <div className="text">
-                                  <span className="ammount">+100</span>
-                                </div>
-                              </div>
-
-                              <div className="asset infamy">
-                                <div className="image">
-                                  <Isvg src="/images/currency/infamy.svg" />
-                                </div>
-                                <div className="text">
-                                  <span className="ammount">+100</span>
-                                </div>
-                              </div>
                           </div>
                         </div>
                       </div>
 
                       <div>
-                          {lastTurnMember.get('events').map(function(e) {
+                          {events.map(function(e) {
                               return <Event event={e} />
                           })}
                       </div>

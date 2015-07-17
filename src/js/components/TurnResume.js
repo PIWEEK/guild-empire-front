@@ -2,7 +2,6 @@ import React from 'react';
 
 import {ImmutableProps} from '../utils';
 import commonActions from '../actions/common.actions';
-import Isvg from 'react-inlinesvg';
 import LastTurnMember from './LastTurnMember';
 
 @ImmutableProps
@@ -37,7 +36,10 @@ class GameZone extends React.Component {
 
                   <div>
                       {lastTurn.map(function(ltm) {
-                          return <LastTurnMember lastTurnMember={ltm} />
+
+                          if (ltm.get('events').size || ltm.get('guild_assets').size) {
+                              return <LastTurnMember lastTurnMember={ltm} />
+                          }
                       })}
                   </div>
 
