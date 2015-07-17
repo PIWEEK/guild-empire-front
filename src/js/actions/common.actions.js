@@ -69,8 +69,8 @@ let commonActions = {
                 cursor.set('actions', Immutable.List());
                 cursor.set('turn', turn);
 
-                this.cursor.set('waiting', false);
-                this.cursor.set('showResume', true);
+                cursor.set('waiting', false);
+                cursor.set('showResume', true);
             });
     },
     musicToggle: function() {

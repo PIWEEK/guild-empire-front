@@ -10,6 +10,7 @@ import {ImmutableProps, guildColor} from '../utils';
 import * as data from '../data';
 import gameEngine from '../gameEngine';
 import classNames from 'classnames';
+import commonActions from '../actions/common.actions';
 
 @ImmutableProps
 class App extends React.Component {
@@ -37,8 +38,10 @@ class App extends React.Component {
 
         guildClasses = classNames(guildClasses);
 
-        return (
-           <div className={guildClasses}>
+        let turn;
+        if (this.props.cursor.get('turn')) {
+            turn = (
+              <div>
               <Guild
                   guildName={guildName}
                   guild={this.props.cursor.getIn(['turn', 'guild'])}
@@ -50,6 +53,13 @@ class App extends React.Component {
                   activePlace={this.props.cursor.get('activePlace')}
                   turn={this.props.cursor.get('turn')} />
               {turnResume}
+              </div>
+            );
+        }
+
+        return (
+           <div className={guildClasses}>
+              {turn}
               {waiting}
            </div>
 
@@ -60,9 +70,8 @@ class App extends React.Component {
 function render() {
     let cursor = data.getNewCursor();
 
-    if (cursor.get('turn')) {
-        React.render(<App cursor={cursor}/>, document.getElementById('root'));
-    }
+    React.render(<App cursor={cursor}/>, document.getElementById('root'));
+
 }
 
 var structure = data.getStructure();
@@ -80,7 +89,18 @@ export default function app() {
             let cursor = data.getNewCursor();
             let activeMember = turn.getIn(['guild', 'members']).get(0);
 
-            cursor.set('turn', turn);
-            cursor.set('activeMember', activeMember);
+            cursor.set('waiting', turn.get('pending'));
+
+            if(turn.get('pending')) {
+                commonActions.nextTurn().then(() => {
+                    cursor.set('turn', turn);
+                    cursor.set('activeMember', activeMember);
+                    cursor.set('waiting', false);
+                    cursor.set('showResume', true);
+                });
+            } else {
+                cursor.set('turn', turn);
+                cursor.set('activeMember', activeMember);
+            }
         });
 }
