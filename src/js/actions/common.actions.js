@@ -67,7 +67,6 @@ let commonActions = {
                 turn = Immutable.fromJS(turn);
                 let cursor = data.getNewCursor();
                 cursor.set('actions', Immutable.List());
-                cursor.set('activePlace', null);
                 cursor.set('turn', turn);
 
                 this.cursor.set('waiting', false);
