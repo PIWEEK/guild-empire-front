@@ -23,6 +23,11 @@ class ActiveMember extends React.Component {
                         'condition-item': true
                     };
 
+                    if (!conditionInfo) {
+                        console.warn('undefined condition', condition.get('slug'));
+                        return (<div></div>);
+                    }
+
                     classes[conditionInfo[0]] = true;
 
                     let classObj = classNames(classes);
