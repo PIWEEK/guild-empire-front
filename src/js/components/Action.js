@@ -12,6 +12,28 @@ class Action extends React.Component {
     render() {
         let action = this.props.action;
 
+        let skillsNeeded;
+        if (action.get('skills_needed')) {
+            let skills = [];
+
+            action.get('skills_needed').forEach((skill) => {
+                skills.push(
+                   <div className="icon">
+                       <Isvg src={`/images/stats/${skill}.svg`} />
+                    </div>
+                );
+            });
+
+            skillsNeeded = (
+                <div className="skill-needed">
+                    <p className="title">Skill Needed</p>
+                    <div className="icon-container">
+                    {skills}
+                    </div>
+                </div>
+            );
+        }
+
         return (
               <div onClick={this.selectAction.bind(this)} className="col-item place">
                 <div className="col-item-decor">
@@ -38,22 +60,7 @@ class Action extends React.Component {
                       </div>
 
                       <div className="item-row results">
-                        <div className="skill-needed">
-                          <p className="title">Skill Needed</p>
-                          <div className="icon-container">
-                            <div className="icon">
-                              <Isvg src="/images/stats/gathering.svg" />
-                              <Isvg className="skill skill-up"src="/images/arrow.svg" />
-                            </div>
-                            <div className="icon">
-                              <Isvg src="/images/stats/martial-arts.svg" />
-                              <Isvg className="skill skill-down"src="/images/arrow.svg" />
-                            </div>
-                            <div className="icon">
-                              <Isvg src="/images/stats/dexterity.svg" />
-                            </div>
-                          </div>
-                        </div>
+                        {skillsNeeded}
                         <div className="expected-results">
                           <p className="title">Expected Result</p>
                           <div className="results-container">
